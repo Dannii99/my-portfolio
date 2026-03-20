@@ -2,96 +2,117 @@
 
 ## Overview
 
-This project is a modern web application based on the Pokémon universe.  
-It uses the PokéAPI as its main data source.
+This project is a personal portfolio built to showcase the work, skills, and experience of a senior frontend developer.
 
-The goal is to create a **highly interactive, visually appealing, and dynamic experience** where users can explore Pokémon in a fun and engaging way.
+The goal is not only to present projects, but to create a memorable and engaging experience that reflects strong frontend expertise, attention to detail, and modern UI/UX standards.
 
----
-
-## Product Vision
-
-This is not just a basic Pokédex.
-
-The application should feel like:
-
-- a premium digital Pokémon experience
-- a modern interactive platform
-- a visually impressive portfolio project
-
-Users should enjoy exploring Pokémon, not just browsing data.
+This portfolio must feel like a product, not just a static website.
 
 ---
 
-## Core Idea
+## Purpose
 
-Allow users to:
-
-- Discover Pokémon
-- Explore detailed information
-- Interact with content in a smooth and animated way
-
-The experience should feel:
-
-- fast
-- fluid
-- visually rich
-- enjoyable to navigate
+- Present professional experience and technical skills
+- Showcase real-world projects with high visual quality
+- Demonstrate frontend mastery through animations, interactions, and performance
+- Create a strong personal brand presence
+- Encourage recruiters or visitors to explore, stay, and connect
 
 ---
 
-## Experience Goals
+## User Experience Vision
 
-The application must prioritize:
+The portfolio should:
 
-### 1. Visual Impact
+- Be visually striking from the first interaction
+- Use smooth, modern animations to guide the user
+- Feel fast, responsive, and fluid
+- Maintain a clean and elegant design
+- Avoid overwhelming the user with unnecessary complexity
 
-- Strong first impression
-- Eye-catching hero sections
-- Beautiful presentation of Pokémon
+The experience should balance:
 
-### 2. Interactivity
-
-- Smooth animations
-- Hover effects
-- Transitions between views
-
-### 3. Engagement
-
-- Encourage exploration
-- Make users want to click and navigate
-- Avoid static or boring layouts
+- **visual impact**
+- **clarity**
+- **performance**
 
 ---
 
-## Key Features (High Level)
+## Interaction Design
 
-- Pokémon listing (Pokédex)
-- Search and filtering
-- Pokémon detail view (stats, abilities, evolutions)
-- Visually rich UI with animations
-- Dynamic elements based on Pokémon types
-
----
-
-## Design Philosophy
-
-- Modern and clean, but not plain
-- Playful, but not childish
-- Animated, but not overwhelming
-- Visually rich, but structured
+- Animations should enhance the experience, not distract
+- Transitions between sections should feel natural and intentional
+- Micro-interactions should provide feedback and polish
+- Scrolling should feel dynamic and engaging
+- The interface should feel alive but controlled
 
 ---
 
-## Technical Context
+## Content Strategy
 
-- Data source: PokéAPI
-- Frontend-focused application
-- Component-based architecture
+The portfolio should include:
+
+- Personal introduction and positioning as a senior frontend developer
+- Highlighted projects with clear descriptions and visual previews
+- Technical skills presented in a structured and modern way
+- Professional experience summarized clearly
+- Easy access to contact or external platforms
 
 ---
 
-## Final Goal
+## Integrations
 
-Build an application that feels:
-**alive, interactive, and memorable**, showcasing both the Pokémon universe and modern frontend capabilities.
+The project should integrate with external platforms:
+
+- GitHub → to display or link real projects and repositories
+- Vercel → for deployment and live previews
+- Optional APIs → for dynamic project data if needed
+
+These integrations should feel seamless and aligned with the UI.
+
+---
+
+## Design Direction
+
+- Modern, minimal, and high-end aesthetic
+- Strong typography and spacing
+- Consistent color system (including dark mode support)
+- Use of depth, motion, and subtle effects
+- Focus on readability and visual hierarchy
+
+---
+
+## Technical Intent
+
+The project should demonstrate:
+
+- Clean and scalable frontend architecture
+- Strong component composition
+- Performance optimization
+- Accessibility awareness
+- Modern frontend practices
+
+---
+
+## Success Criteria
+
+The portfolio is successful if:
+
+- It immediately captures attention
+- Users stay and explore multiple sections
+- Projects are clearly understood and visually appealing
+- The experience feels smooth and professional
+- It reflects a senior-level frontend skillset
+
+---
+
+## Tone and Identity
+
+The portfolio should feel:
+
+- professional but modern
+- confident but not overloaded
+- creative but controlled
+- technically strong and visually polished
+
+It should communicate expertise without explicitly stating it.

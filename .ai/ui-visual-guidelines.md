@@ -1,223 +1,55 @@
-# UI Visual Guidelines
+# Stitch Project Analysis: Senior Frontend Portfolio - Danny Ospino
 
-This document defines the visual direction for a modern Pokémon web application.  
-The goal is to achieve a **premium, interactive, and visually engaging experience**.
+Este documento detalla el análisis del proyecto extraído desde Stitch para la plataforma "Senior Frontend Portfolio - Danny Ospino", abarcando tanto el sistema de diseño (Design System) configurado como las pantallas generadas en el proyecto.
 
----
+## 1. Información General del Proyecto
 
-## 1. Overall Style
+- **Project ID:** `13012642970098807028`
+- **Nombre:** Senior Frontend Portfolio - Danny Ospino
+- **Tipo de Proyecto:** TEXT_TO_UI_PRO
+- **Dispositivo Objetivo:** DESKTOP
+- **Modo de Color:** DARK (Oscuro)
 
-- Dark mode first
-- Inspired by modern gaming dashboards + SaaS UI
-- Clean, minimal, but visually rich
-- Slightly futuristic with playful Pokémon identity
-- Avoid childish or overly cartoonish styles
+## 2. Sistema de Diseño (Design System)
 
----
+El "Design System" de este proyecto se basa en el principio creativo denominado **"The Ethereal Architect"**. Este enfoque busca romper con la naturaleza de cajas tradicionales en el desarrollo web y moverlo hacia un espacio que se sienta como una galería digital de alta gama.
 
-## 2. Color System
+### Paleta de Colores y Superficies
 
-### Base Colors
+- **Colores Principales:**
+  - **Background:** `#0b1326` (Tono profundo y nocturno).
+  - **Primary Custom Color:** `#2E5BFF` (Azul eléctrico).
+  - Otros acentos incluyen tonos violetas, cian y azules eléctricos como `#8B5CF6` (Secondary) y `#0EA5E9` (Tertiary).
+- **Regla de "No-Line" (Sin Líneas):** Se prohíben los bordes estándar de 1px. La separación entre secciones debe lograrse mediante cambios tonales, brillos radiales (gradientes) de 5 al 10% de opacidad y superposición de contenedores (`surface_container_low`).
 
-- Background: very dark tones (not pure black)
-  - Example: #181711, #1a1810
-- Surface: slightly lighter dark for cards and panels
-- Text:
-  - Primary: near white
-  - Secondary: muted gray
+### Tipografía (The Editorial Scale)
 
-### Primary Accent
+- **Fuentes:**
+  - **Titulares (Display & Headlines):** **Manrope** (Estilo geométrico con -0.02em de letter-spacing).
+  - **Cuerpo y Textos Pequeños (Body & Labels):** **Inter** (Limpia y legible con un line-height generoso de 1.6).
 
-- Main color: **gold / yellow**
-  - Example: #f7cf2b
-- Used for:
-  - Buttons
-  - Active states
-  - Highlights
-  - Borders (subtle)
+### Profundidad y Diseño (Glassmorphism & Depth)
 
-### Secondary Accents
+- **Roundness (Bordes):** `roundedness.xl` (0.75rem / ROUND_FOUR) en la mayoría de los casos.
+- **Glassmorphism (Regla del Vidrio y Gradientes):** En elementos flotantes y tarjetas se requiere fondo a 60-80% de opacidad (usando `surface_container_high`) con `backdrop-filter: blur(12px)`.
+- **Ghost Borders:** Para evitar la falta de contraste, si no hay contenedor visible, se emplea un "Ghost Border" usando `#434656` al 20% de opacidad.
+- **Glow y Transiciones:** Uso de sombras "atmosféricas" suaves y difuminadas. Interacciones de _hover_ deben acompañarse de animaciones como `300ms cubic-bezier(0.4, 0, 0.2, 1)`.
 
-- Pokémon type-based colors (used carefully)
-  - Fire → red/orange
-  - Water → blue
-  - Electric → yellow
-  - Grass → green
-- Used in:
-  - Badges
-  - Small glows
-  - Visual cues
+### Componentes Especiales
 
----
+- **Spotlight:** Cita específicamente la recomendación de implementar un componente "Spotlight" (una luz de gradiente suave) que siga el cursor tras las tarjetas de cristal (Glass Cards).
+- **Bento Grids & Cards:** Se usan espacios amplios entre ellas (por ejemplo, `spacing.8` para tarjetas y `spacing.24` entre grandes secciones).
 
-## 3. Typography
+## 3. Pantallas Extraídas
 
-- Font: modern sans-serif (clean and readable)
-- Style:
-  - Titles: bold, large
-  - Subtitles: medium weight
-  - Body: regular, high readability
-  - Labels: small, uppercase, spaced
+El proyecto cuenta con cinco pantallas ("screens") generadas que se componen bajo esta misma estética:
 
-Tone:
-
-- Strong, modern, slightly tech/gaming feel
+1. **Senior Frontend Portfolio - Alex Vance** _(ID: a340c2...)_: Pantalla principal de la vista general.
+2. **Technical Expertise** _(ID: df2870...)_: Sección que probablemente muestra herramientas, frameworks y lenguajes mediante grids o Bento grids.
+3. **Selected Work - Portfolio** _(ID: 9048c5...)_: Exposición detallada de los proyectos, donde aplica el diseño flotante ("Glassmorphism").
+4. **Engineering Process** _(ID: 89f621...)_: Pantalla informativa del desarrollo, posiblemente utilizando un layout vertical extenso dictado por el alto de 7432px de la captura generada.
+5. **Start a Conversation** _(ID: 0a5863...)_: Formulario o sección de contacto y pie de página minimalista ("ghost border" fallback aplicable a inputs).
 
 ---
 
-## 4. Layout Principles
-
-- Use max-width containers (centered layout)
-- Good spacing between sections
-- Clear hierarchy:
-  - Hero → Content → Details
-- Avoid clutter
-
-Common patterns:
-
-- Grid for lists (cards)
-- Sidebar filters (optional)
-- Tabs for detail views
-
----
-
-## 5. Components
-
-### Cards
-
-- Rounded corners (xl)
-- Dark surface + subtle border
-- Soft shadow or glow
-- Hover:
-  - Slight scale
-  - Elevation effect
-
-### Buttons
-
-- Rounded
-- Primary:
-  - Gold background
-  - Dark text
-- Secondary:
-  - Transparent / glass with border
-
-### Inputs / Search
-
-- Dark background
-- Rounded
-- With icon (search, filter)
-- Focus state: subtle highlight (gold)
-
-### Badges (Types)
-
-- Small pill shape
-- Uppercase text
-- Color-coded by Pokémon type
-
----
-
-## 6. Surfaces & Effects
-
-- Use **glassmorphism lightly**
-  - backdrop blur
-  - semi-transparent backgrounds
-- Soft borders instead of heavy shadows
-- Subtle glow effects (especially on hover)
-
----
-
-## 7. Imagery
-
-- Pokémon is always the visual focus
-- Use:
-  - Clean PNGs / official artwork
-- Enhance with:
-  - Soft glow behind Pokémon
-  - Gradient background based on type
-
-Avoid:
-
-- Cluttered backgrounds
-- Low-quality sprites (unless stylized)
-
----
-
-## 8. Motion & Interaction
-
-- Smooth and subtle animations
-- Avoid excessive motion
-
-Use:
-
-- Hover → scale + shadow/glow
-- Page transitions → fade + slide
-- Loading → skeleton or spinner
-
-Timing:
-
-- 200ms – 400ms (smooth, fast)
-
----
-
-## 9. Key Screens (Conceptual)
-
-### Home
-
-- Big hero Pokémon
-- Search bar
-- Quick filters
-- Featured / trending section
-
-### Pokédex List
-
-- Grid of cards
-- Filters (type, generation)
-- Search + sort
-
-### Pokémon Detail
-
-- Large Pokémon display
-- Stats (bars)
-- Types, abilities
-- Evolutions
-
----
-
-## 10. Tone & Experience
-
-The UI should feel:
-
-- Premium
-- Interactive
-- Smooth
-- Modern
-- Slightly futuristic
-
-Think:
-
-> "A Pokémon app built like a high-end product, not a basic fan page."
-
----
-
-## 11. Do / Don’t
-
-### Do
-
-- Keep it clean and structured
-- Use color with intention
-- Highlight Pokémon visually
-- Add subtle interactivity
-
-### Don’t
-
-- Overuse bright colors everywhere
-- Make it look childish
-- Overload with animations
-- Use inconsistent spacing
-
----
-
-## Final Goal
-
-Create a UI that feels:
-**modern, polished, and impressive enough for a developer portfolio.**
+Con los hallazgos de este análisis (fuentes, estructura de capas _Glassmorphism_, gradientes, _Ghost Borders_ y _Spotlight_), nuestro objetivo al llevarlo a Next.js (Tailwind 4, Framer Motion) deberá mantener estricta coherencia para replicar al 100% esta dirección creativa.

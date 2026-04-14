@@ -1,77 +1,136 @@
 "use client"
 
-import { Mail, MessageSquare, Send } from "lucide-react"
+import { motion } from "framer-motion"
+import { Mail, MessageSquare, Send, Linkedin, Twitter, Github } from "lucide-react"
+import { SpotlightCard } from "@/components/ui/spotlight-card"
 
 export function Contact() {
   return (
-    <section id="contact" className="w-full py-24 px-6 bg-background">
-      <div className="container mx-auto max-w-4xl">
-        <div className="mb-16 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-5xl">
-            Start a Conversation
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+    <section id="contact" className="w-full py-32 px-6 relative overflow-hidden">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[600px] w-[1000px] rounded-full bg-secondary/5 blur-[120px] -z-10" />
+      
+      <div className="container mx-auto max-w-6xl">
+        <div className="mb-20 text-center">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-6xl"
+          >
+            Start a <span className="text-primary italic">Conversation</span>
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto"
+          >
             Have a project in mind or just want to say hi? I&apos;m always open 
-            to discussing new opportunities and creative ideas.
-          </p>
+            to discussing new opportunities and creative architectural ideas.
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="space-y-8">
-            <div className="flex items-center gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <Mail className="h-6 w-6" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Email Me</h4>
-                <p className="text-lg font-medium text-foreground">hello@dannyospino.com</p>
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
+          <div className="lg:col-span-2 space-y-12">
+            <div className="space-y-8">
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="group flex items-center gap-6"
+              >
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/5 border border-primary/10 text-primary transition-all group-hover:bg-primary/10 group-hover:scale-110">
+                  <Mail className="h-7 w-7" />
+                </div>
+                <div>
+                  <h4 className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60 mb-1">Email Me</h4>
+                  <p className="text-xl font-medium text-foreground group-hover:text-primary transition-colors">hello@dannyospino.com</p>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="group flex items-center gap-6"
+              >
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-secondary/5 border border-secondary/10 text-secondary transition-all group-hover:bg-secondary/10 group-hover:scale-110">
+                  <MessageSquare className="h-7 w-7" />
+                </div>
+                <div>
+                  <h4 className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60 mb-1">Social Presence</h4>
+                  <div className="flex gap-4 mt-2">
+                    <Linkedin className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+                    <Twitter className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+                    <Github className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+                  </div>
+                </div>
+              </motion.div>
             </div>
 
-            <div className="flex items-center gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-secondary/10 text-secondary">
-                <MessageSquare className="h-6 w-6" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Socials</h4>
-                <p className="text-lg font-medium text-foreground">@dannyospino</p>
-              </div>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="p-8 rounded-3xl bg-white/[0.02] border border-white/5 backdrop-blur-sm"
+            >
+              <h5 className="font-heading text-sm font-bold text-foreground mb-4">Current Availability</h5>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                I&apos;m currently accepting new freelance projects and consulting engagements for Q3 2026.
+              </p>
+            </motion.div>
           </div>
 
-          <form className="space-y-6">
-            <div className="space-y-2">
-              <label htmlFor="name" className="text-sm font-medium text-foreground">Name</label>
-              <input
-                id="name"
-                type="text"
-                placeholder="Your Name"
-                className="w-full rounded-xl border border-border/10 bg-card/60 px-4 py-3 text-foreground backdrop-blur-md outline-none focus:border-primary/50 transition-all"
-              />
-            </div>
-            <div className="space-y-2">
-              <label htmlFor="email" className="text-sm font-medium text-foreground">Email</label>
-              <input
-                id="email"
-                type="email"
-                placeholder="your@email.com"
-                className="w-full rounded-xl border border-border/10 bg-card/60 px-4 py-3 text-foreground backdrop-blur-md outline-none focus:border-primary/50 transition-all"
-              />
-            </div>
-            <div className="space-y-2">
-              <label htmlFor="message" className="text-sm font-medium text-foreground">Message</label>
-              <textarea
-                id="message"
-                rows={4}
-                placeholder="Tell me about your project..."
-                className="w-full rounded-xl border border-border/10 bg-card/60 px-4 py-3 text-foreground backdrop-blur-md outline-none focus:border-primary/50 transition-all resize-none"
-              />
-            </div>
-            <button className="flex w-full h-14 items-center justify-center gap-2 rounded-xl bg-primary px-8 text-lg font-bold text-primary-foreground transition-all hover:scale-[1.02] active:scale-[0.98]">
-              Send Message
-              <Send className="h-5 w-5" />
-            </button>
-          </form>
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="lg:col-span-3"
+          >
+            <SpotlightCard className="p-10 md:p-12 border-white/5 bg-white/[0.02]">
+              <form className="space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="space-y-3">
+                    <label htmlFor="name" className="font-heading text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60 ml-1">Name</label>
+                    <input
+                      id="name"
+                      type="text"
+                      placeholder="Your Name"
+                      className="w-full rounded-2xl border border-white/5 bg-white/[0.03] px-6 py-4 text-foreground outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/5 transition-all placeholder:text-muted-foreground/30"
+                    />
+                  </div>
+                  <div className="space-y-3">
+                    <label htmlFor="email" className="font-heading text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60 ml-1">Email</label>
+                    <input
+                      id="email"
+                      type="email"
+                      placeholder="your@email.com"
+                      className="w-full rounded-2xl border border-white/5 bg-white/[0.03] px-6 py-4 text-foreground outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/5 transition-all placeholder:text-muted-foreground/30"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <label htmlFor="message" className="font-heading text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60 ml-1">Message</label>
+                  <textarea
+                    id="message"
+                    rows={5}
+                    placeholder="Tell me about your project or vision..."
+                    className="w-full rounded-2xl border border-white/5 bg-white/[0.03] px-6 py-4 text-foreground outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/5 transition-all resize-none placeholder:text-muted-foreground/30"
+                  />
+                </div>
+                <button className="group flex w-full h-16 items-center justify-center gap-3 rounded-2xl bg-primary px-10 text-lg font-bold text-primary-foreground shadow-2xl shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98]">
+                  Send Message
+                  <Send className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                </button>
+              </form>
+            </SpotlightCard>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -77,7 +77,7 @@ export function Process() {
                   index % 2 === 0 ? "md:text-right" : "md:text-left"
                 )}>
                   <div className={cn(
-                    "font-heading text-7xl md:text-9xl font-black text-white/[0.03] leading-none mb-[-2rem] transition-colors group-hover:text-primary/[0.05]",
+                    "font-heading text-7xl md:text-9xl font-black text-foreground/[0.03] leading-none mb-[-2rem] transition-colors group-hover:text-primary/[0.05] dark:text-white/[0.03] dark:group-hover:text-primary/[0.05]",
                     index % 2 === 0 ? "md:mr-[-1rem]" : "md:ml-[-1rem]"
                   )}>
                     {step.number}
@@ -94,8 +94,8 @@ export function Process() {
                 </div>
 
                 {/* Center Node */}
-                <div className="relative z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-[#0F172A] border border-white/5 shadow-2xl transition-transform hover:scale-110">
-                  <div className="h-4 w-4 rounded-full bg-primary shadow-[0_0_20px_rgba(46,91,255,0.8)]" />
+                <div className="relative z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-card border border-border shadow-xl transition-transform hover:scale-110">
+                  <div className="h-4 w-4 rounded-full bg-primary shadow-[0_0_20px_rgba(46,91,255,0.4)] dark:shadow-[0_0_20px_rgba(46,91,255,0.8)]" />
                 </div>
 
                 {/* Empty Space for alignment */}

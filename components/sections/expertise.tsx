@@ -74,9 +74,11 @@ export function Expertise() {
               viewport={{ once: true }}
               className={item.className}
             >
-              <SpotlightCard className="h-full p-10 flex flex-col justify-between border-white/5 bg-white/[0.02]">
+              <SpotlightCard className="h-full p-10 flex flex-col justify-between border-border bg-card/50 shadow-sm transition-all hover:bg-card">
                 <div>
-                  <div className="mb-6 opacity-80">{item.icon}</div>
+                  <div className="mb-6 flex items-center justify-center h-16 w-16 rounded-2xl bg-muted/30 dark:bg-white/[0.03]">
+                    {item.icon}
+                  </div>
                   <h3 className="font-heading text-2xl font-bold text-foreground">
                     {item.title}
                   </h3>

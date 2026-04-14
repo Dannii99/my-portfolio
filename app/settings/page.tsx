@@ -1,0 +1,78 @@
+"use client"
+
+import { Navbar } from "@/components/shared/navbar"
+import { Footer } from "@/components/shared/footer"
+import { ThemeToggle } from "@/components/ui/theme-toggle"
+import { motion } from "framer-motion"
+import { Settings as SettingsIcon } from "lucide-react"
+
+export default function SettingsPage() {
+  return (
+    <div className="relative min-h-screen bg-background text-foreground selection:bg-primary/30">
+      <Navbar />
+      <main className="pt-32 pb-20 px-6">
+        <div className="container mx-auto max-w-4xl">
+          <div className="mb-16">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="flex items-center gap-4 mb-6"
+            >
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 border border-primary/20 text-primary">
+                <SettingsIcon className="h-6 w-6" />
+              </div>
+              <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+                Settings
+              </h1>
+            </motion.div>
+            <motion.p
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="text-lg text-muted-foreground max-w-2xl leading-relaxed"
+            >
+              Customize your experience and manage your application preferences.
+            </motion.p>
+          </div>
+
+          <div className="space-y-12">
+            {/* Appearance Section */}
+            <motion.section
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="p-10 rounded-3xl bg-card/50 border border-border backdrop-blur-sm shadow-sm"
+            >
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+                <div>
+                  <h2 className="font-heading text-2xl font-bold text-foreground mb-2">Appearance</h2>
+                  <p className="text-sm text-muted-foreground">
+                    Customize the look and feel of the application.
+                  </p>
+                </div>
+                <ThemeToggle />
+              </div>
+            </motion.section>
+
+            {/* Placeholder for future settings */}
+            <motion.section
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="p-10 rounded-3xl bg-muted/30 border border-border opacity-60"
+            >
+              <div className="flex flex-col gap-4">
+                <h2 className="font-heading text-xl font-bold text-foreground opacity-50">General Preferences</h2>
+                <p className="text-sm text-muted-foreground italic">
+                  More settings coming soon...
+                </p>
+              </div>
+            </motion.section>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  )
+}

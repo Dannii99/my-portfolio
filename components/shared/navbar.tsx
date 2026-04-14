@@ -7,10 +7,11 @@ import { Menu, X, Cpu, Sparkles } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navItems = [
-  { name: "Expertise", href: "#expertise" },
-  { name: "Work", href: "#work" },
-  { name: "Process", href: "#process" },
-  { name: "Contact", href: "#contact" },
+  { name: "Expertise", href: "/#expertise" },
+  { name: "Work", href: "/#work" },
+  { name: "Process", href: "/#process" },
+  { name: "Contact", href: "/#contact" },
+  { name: "Settings", href: "/settings" },
 ]
 
 export function Navbar() {
@@ -30,7 +31,7 @@ export function Navbar() {
       className={cn(
         "fixed top-0 z-50 w-full transition-all duration-500",
         scrolled
-          ? "border-b border-white/5 bg-[#0F172A]/70 backdrop-blur-2xl py-4"
+          ? "border-b border-border bg-background/80 backdrop-blur-2xl py-4 shadow-sm"
           : "bg-transparent py-8"
       )}
     >
@@ -52,7 +53,7 @@ export function Navbar() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-10">
-          <div className="flex items-center gap-8 px-6 py-2 rounded-full border border-white/5 bg-white/[0.02] backdrop-blur-md">
+          <div className="flex items-center gap-8 px-6 py-2 rounded-full border border-border bg-card/50 backdrop-blur-md shadow-sm">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -74,7 +75,7 @@ export function Navbar() {
 
         {/* Mobile Nav Toggle */}
         <button
-          className="flex md:hidden h-10 w-10 items-center justify-center rounded-xl border border-white/5 bg-white/5 text-foreground"
+          className="flex md:hidden h-10 w-10 items-center justify-center rounded-xl border border-border bg-card text-foreground shadow-sm"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -88,7 +89,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="absolute top-full left-0 w-full bg-[#0b1326]/95 backdrop-blur-3xl border-b border-white/5 overflow-hidden md:hidden"
+            className="absolute top-full left-0 w-full bg-background/95 backdrop-blur-3xl border-b border-border shadow-lg overflow-hidden md:hidden"
           >
             <div className="flex flex-col gap-6 px-6 py-10">
               {navItems.map((item, index) => (
@@ -111,7 +112,7 @@ export function Navbar() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navItems.length * 0.1 }}
-                className="pt-6 border-t border-white/5"
+                className="pt-6 border-t border-border"
               >
                 <Link
                   href="#contact"

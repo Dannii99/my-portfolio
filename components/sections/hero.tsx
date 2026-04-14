@@ -52,10 +52,10 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-heading text-balance text-5xl font-extrabold leading-[1.1] tracking-tight text-white md:text-8xl lg:text-[7rem]"
+          className="font-heading text-balance text-5xl font-extrabold leading-[1.1] tracking-tight text-foreground md:text-8xl lg:text-[7rem]"
         >
-          Architecting <span className="italic font-light opacity-90">Ethereal</span> <br />
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#9878e4] via-[#ae97e5]/90 to-[#90bbce] saturate-[1.2] brightness-[1.1]">
+          Architecting <span className="italic font-light opacity-80">Ethereal</span> <br />
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#8B5CF6]/80 via-[#8B5CF6]/70 to-[#0EA5E9]/80 saturate-[1.1] brightness-[1.1] dark:from-[#9b7de0]/70 dark:via-[#9b7de0] dark:to-[#5891ac]">
             Digital Experiences
           </span>
         </motion.h1>
@@ -64,7 +64,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mx-auto mt-10 max-w-2xl text-lg leading-relaxed text-muted-foreground/80 md:text-xl"
+          className="mx-auto mt-10 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl"
         >
           Crafting high-end web applications with a focus on performance, 
           aesthetics, and human-centric interaction design.
@@ -80,7 +80,7 @@ export function Hero() {
             Explore My Work
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
           </button>
-          <button className="flex h-16 items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-10 text-lg font-bold text-foreground backdrop-blur-xl transition-all hover:bg-white/10">
+          <button className="flex h-16 items-center gap-3 rounded-2xl border border-border bg-card px-10 text-lg font-bold text-foreground backdrop-blur-xl transition-all hover:bg-muted shadow-sm">
             About Me
           </button>
         </motion.div>

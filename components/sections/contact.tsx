@@ -77,7 +77,7 @@ export function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className="p-8 rounded-3xl bg-white/[0.02] border border-white/5 backdrop-blur-sm"
+              className="p-8 rounded-3xl bg-card/50 border border-border backdrop-blur-sm shadow-sm"
             >
               <h5 className="font-heading text-sm font-bold text-foreground mb-4">Current Availability</h5>
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -93,7 +93,7 @@ export function Contact() {
             viewport={{ once: true }}
             className="lg:col-span-3"
           >
-            <SpotlightCard className="p-10 md:p-12 border-white/5 bg-white/[0.02]">
+            <SpotlightCard className="p-10 md:p-12 border-border bg-card/50 shadow-sm">
               <form className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-3">
@@ -102,7 +102,7 @@ export function Contact() {
                       id="name"
                       type="text"
                       placeholder="Your Name"
-                      className="w-full rounded-2xl border border-white/5 bg-white/[0.03] px-6 py-4 text-foreground outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/5 transition-all placeholder:text-muted-foreground/30"
+                      className="w-full rounded-2xl border border-border bg-background px-6 py-4 text-foreground outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/5 transition-all placeholder:text-muted-foreground/40 shadow-sm"
                     />
                   </div>
                   <div className="space-y-3">
@@ -111,7 +111,7 @@ export function Contact() {
                       id="email"
                       type="email"
                       placeholder="your@email.com"
-                      className="w-full rounded-2xl border border-white/5 bg-white/[0.03] px-6 py-4 text-foreground outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/5 transition-all placeholder:text-muted-foreground/30"
+                      className="w-full rounded-2xl border border-border bg-background px-6 py-4 text-foreground outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/5 transition-all placeholder:text-muted-foreground/40 shadow-sm"
                     />
                   </div>
                 </div>
@@ -121,7 +121,7 @@ export function Contact() {
                     id="message"
                     rows={5}
                     placeholder="Tell me about your project or vision..."
-                    className="w-full rounded-2xl border border-white/5 bg-white/[0.03] px-6 py-4 text-foreground outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/5 transition-all resize-none placeholder:text-muted-foreground/30"
+                    className="w-full rounded-2xl border border-border bg-background px-6 py-4 text-foreground outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/5 transition-all resize-none placeholder:text-muted-foreground/40 shadow-sm"
                   />
                 </div>
                 <button className="group flex w-full h-16 items-center justify-center gap-3 rounded-2xl bg-primary px-10 text-lg font-bold text-primary-foreground shadow-2xl shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98]">

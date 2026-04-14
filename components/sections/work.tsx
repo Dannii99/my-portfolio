@@ -69,8 +69,8 @@ export function Work() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <SpotlightCard className="overflow-hidden border-white/5 bg-white/[0.01] hover:bg-white/[0.03]">
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-white/5 p-10">
+              <SpotlightCard className="overflow-hidden border-border bg-card/50 shadow-sm hover:bg-card/80">
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted p-10">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <Image
                     src={project.image}

@@ -1,7 +1,13 @@
+"use client"
+
 import Link from "next/link"
 import { Cpu, Github, Linkedin, Twitter, Sparkles } from "lucide-react"
 
+import { useLanguage } from "@/components/language-provider"
+
 export function Footer() {
+  const { t, locale } = useLanguage()
+
   return (
     <footer className="w-full border-t border-border bg-card py-20 px-6 relative overflow-hidden">
       <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-primary/5 blur-[100px] -z-0" />
@@ -19,28 +25,27 @@ export function Footer() {
                   Danny Ospino
                 </span>
                 <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-primary/60 mt-1">
-                  Architecture
+                  {locale === "es" ? "Arquitectura" : "Architecture"}
                 </span>
               </div>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
-              Designing and engineering high-end digital experiences with a focus on performance, 
-              atmospheric depth, and human-centric interaction.
+              {t.footer.desc}
             </p>
           </div>
 
           <div className="space-y-6">
-            <h4 className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-foreground">Navigation</h4>
+            <h4 className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-foreground">{t.footer.nav_title}</h4>
             <div className="flex flex-col gap-4 text-sm text-muted-foreground">
-              <Link href="/#expertise" className="hover:text-primary transition-colors">Expertise</Link>
-              <Link href="/#work" className="hover:text-primary transition-colors">Selected Work</Link>
-              <Link href="/#process" className="hover:text-primary transition-colors">Process</Link>
-              <Link href="/#contact" className="hover:text-primary transition-colors">Contact</Link>
+              <Link href="/#expertise" className="hover:text-primary transition-colors">{t.nav.expertise}</Link>
+              <Link href="/#work" className="hover:text-primary transition-colors">{t.nav.work}</Link>
+              <Link href="/#process" className="hover:text-primary transition-colors">{t.nav.process}</Link>
+              <Link href="/#contact" className="hover:text-primary transition-colors">{t.nav.contact}</Link>
             </div>
           </div>
 
           <div className="space-y-6">
-            <h4 className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-foreground">Connect</h4>
+            <h4 className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-foreground">{t.footer.connect_title}</h4>
             <div className="flex gap-4">
               <Link href="#" className="h-12 w-12 flex items-center justify-center rounded-2xl bg-muted border border-border text-muted-foreground hover:text-primary hover:border-primary/20 transition-all hover:scale-110">
                 <Github className="h-5 w-5" />
@@ -57,7 +62,7 @@ export function Footer() {
         
         <div className="pt-12 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-muted-foreground text-[10px] font-bold uppercase tracking-[0.2em]">
-            © {new Date().getFullYear()} Danny Ospino. All rights reserved.
+            © {new Date().getFullYear()} Danny Ospino. {t.footer.rights}
           </p>
           <div className="flex gap-8 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
             <span className="text-primary/60 italic">Next.js 16.2.0</span>

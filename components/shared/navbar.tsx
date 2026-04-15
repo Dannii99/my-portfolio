@@ -5,18 +5,21 @@ import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, Cpu, Sparkles } from "lucide-react"
 import { cn } from "@/lib/utils"
-
-const navItems = [
-  { name: "Expertise", href: "/#expertise" },
-  { name: "Work", href: "/#work" },
-  { name: "Process", href: "/#process" },
-  { name: "Contact", href: "/#contact" },
-  { name: "Settings", href: "/settings" },
-]
+import { useLanguage } from "@/components/language-provider"
+import { LanguageToggle } from "@/components/ui/language-toggle"
 
 export function Navbar() {
+  const { t, locale } = useLanguage()
   const [isOpen, setIsOpen] = React.useState(false)
   const [scrolled, setScrolled] = React.useState(false)
+
+  const navItems = [
+    { name: t.nav.expertise, href: "/#expertise" },
+    { name: t.nav.work, href: "/#work" },
+    { name: t.nav.process, href: "/#process" },
+    { name: t.nav.contact, href: "/#contact" },
+    { name: t.nav.settings, href: "/settings" },
+  ]
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -46,7 +49,7 @@ export function Navbar() {
               Danny Ospino
             </span>
             <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-primary/60 mt-1">
-              Architecture
+              {locale === "es" ? "Arquitectura" : "Architecture"}
             </span>
           </div>
         </Link>
@@ -64,13 +67,16 @@ export function Navbar() {
               </Link>
             ))}
           </div>
-          <Link
-            href="#contact"
-            className="group relative px-6 py-2.5 rounded-xl font-heading text-sm font-bold text-primary-foreground overflow-hidden"
-          >
-            <div className="absolute inset-0 bg-primary transition-transform group-hover:scale-110" />
-            <span className="relative z-10">Let&apos;s Talk</span>
-          </Link>
+          <div className="flex items-center gap-4">
+            <LanguageToggle />
+            <Link
+              href="#contact"
+              className="group relative px-6 py-2.5 rounded-xl font-heading text-sm font-bold text-primary-foreground overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-primary transition-transform group-hover:scale-110" />
+              <span className="relative z-10">{t.nav.cta}</span>
+            </Link>
+          </div>
         </div>
 
         {/* Mobile Nav Toggle */}
@@ -112,14 +118,18 @@ export function Navbar() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navItems.length * 0.1 }}
-                className="pt-6 border-t border-border"
+                className="pt-6 border-t border-border flex flex-col gap-6"
               >
+                <div className="flex justify-between items-center">
+                  <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Language / Idioma</span>
+                  <LanguageToggle />
+                </div>
                 <Link
                   href="#contact"
                   className="inline-flex h-14 items-center justify-center w-full rounded-2xl bg-primary font-heading font-bold text-primary-foreground"
                   onClick={() => setIsOpen(false)}
                 >
-                  Start a Conversation
+                  {t.nav.cta}
                 </Link>
               </motion.div>
             </div>

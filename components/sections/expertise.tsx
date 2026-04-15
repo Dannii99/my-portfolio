@@ -4,41 +4,45 @@ import { motion } from "framer-motion"
 import { SpotlightCard } from "@/components/ui/spotlight-card"
 import { Code2, Cpu, Globe, Layout, Zap, Terminal, Layers, Sparkles } from "lucide-react"
 
-const expertise = [
-  {
-    title: "System Architecture",
-    description: "Designing scalable, type-safe frontend systems using Next.js, TypeScript, and micro-frontend patterns.",
-    icon: <Cpu className="h-10 w-10 text-primary" />,
-    className: "md:col-span-2 md:row-span-2",
-    details: ["Next.js App Router", "TypeScript", "System Design"],
-  },
-  {
-    title: "Fluid Motion",
-    description: "Orchestrating complex, performant animations with Framer Motion and GSAP.",
-    icon: <Zap className="h-8 w-8 text-secondary" />,
-    className: "md:col-span-1 md:row-span-1",
-  },
-  {
-    title: "Performance",
-    description: "Optimizing Core Web Vitals, server-side efficiency, and asset delivery.",
-    icon: <Sparkles className="h-8 w-8 text-accent" />,
-    className: "md:col-span-1 md:row-span-1",
-  },
-  {
-    title: "Modern Stack",
-    description: "Mastering the cutting edge of the React ecosystem, Tailwind 4, and advanced build tools.",
-    icon: <Terminal className="h-8 w-8 text-primary" />,
-    className: "md:col-span-1 md:row-span-1",
-  },
-  {
-    title: "UI/UX Engineering",
-    description: "Bridging the gap between high-fidelity design and technical implementation with precision.",
-    icon: <Layers className="h-8 w-8 text-secondary" />,
-    className: "md:col-span-2 md:row-span-1",
-  },
-]
+import { useLanguage } from "@/components/language-provider"
 
 export function Expertise() {
+  const { t } = useLanguage()
+
+  const expertise = [
+    {
+      title: t.expertise.items[0].title,
+      description: t.expertise.items[0].description,
+      icon: <Cpu className="h-10 w-10 text-primary" />,
+      className: "md:col-span-2 md:row-span-2",
+      details: t.expertise.items[0].details,
+    },
+    {
+      title: t.expertise.items[1].title,
+      description: t.expertise.items[1].description,
+      icon: <Zap className="h-8 w-8 text-secondary" />,
+      className: "md:col-span-1 md:row-span-1",
+    },
+    {
+      title: t.expertise.items[2].title,
+      description: t.expertise.items[2].description,
+      icon: <Sparkles className="h-8 w-8 text-accent" />,
+      className: "md:col-span-1 md:row-span-1",
+    },
+    {
+      title: t.expertise.items[3].title,
+      description: t.expertise.items[3].description,
+      icon: <Terminal className="h-8 w-8 text-primary" />,
+      className: "md:col-span-1 md:row-span-1",
+    },
+    {
+      title: t.expertise.items[4].title,
+      description: t.expertise.items[4].description,
+      icon: <Layers className="h-8 w-8 text-secondary" />,
+      className: "md:col-span-2 md:row-span-1",
+    },
+  ]
+
   return (
     <section id="expertise" className="w-full py-32 px-6">
       <div className="container mx-auto">
@@ -50,7 +54,7 @@ export function Expertise() {
             viewport={{ once: true }}
             className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-6xl"
           >
-            Technical <span className="text-primary italic">Expertise</span>
+            {t.expertise.title.split(" ")[0]} <span className="text-primary italic">{t.expertise.title.split(" ")[1]}</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, x: -20 }}
@@ -59,8 +63,7 @@ export function Expertise() {
             viewport={{ once: true }}
             className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed"
           >
-            A comprehensive approach to modern frontend engineering, 
-            balancing technical rigor with creative vision.
+            {t.expertise.subtitle}
           </motion.p>
         </div>
 

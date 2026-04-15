@@ -4,7 +4,11 @@ import { motion } from "framer-motion"
 import { Mail, MessageSquare, Send, Linkedin, Twitter, Github } from "lucide-react"
 import { SpotlightCard } from "@/components/ui/spotlight-card"
 
+import { useLanguage } from "@/components/language-provider"
+
 export function Contact() {
+  const { t } = useLanguage()
+
   return (
     <section id="contact" className="w-full py-32 px-6 relative overflow-hidden">
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[600px] w-[1000px] rounded-full bg-secondary/5 blur-[120px] -z-10" />
@@ -18,7 +22,7 @@ export function Contact() {
             viewport={{ once: true }}
             className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-6xl"
           >
-            Start a <span className="text-primary italic">Conversation</span>
+            {t.contact.title.split(" ").slice(0, -1).join(" ")} <span className="text-primary italic">{t.contact.title.split(" ").slice(-1)}</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -27,8 +31,7 @@ export function Contact() {
             viewport={{ once: true }}
             className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto"
           >
-            Have a project in mind or just want to say hi? I&apos;m always open 
-            to discussing new opportunities and creative architectural ideas.
+            {t.contact.subtitle}
           </motion.p>
         </div>
 
@@ -46,7 +49,7 @@ export function Contact() {
                   <Mail className="h-7 w-7" />
                 </div>
                 <div>
-                  <h4 className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60 mb-1">Email Me</h4>
+                  <h4 className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60 mb-1">{t.contact.email_label}</h4>
                   <p className="text-xl font-medium text-foreground group-hover:text-primary transition-colors">hello@dannyospino.com</p>
                 </div>
               </motion.div>
@@ -62,7 +65,7 @@ export function Contact() {
                   <MessageSquare className="h-7 w-7" />
                 </div>
                 <div>
-                  <h4 className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60 mb-1">Social Presence</h4>
+                  <h4 className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60 mb-1">{t.contact.social_label}</h4>
                   <div className="flex gap-4 mt-2">
                     <Linkedin className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
                     <Twitter className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
@@ -79,9 +82,9 @@ export function Contact() {
               viewport={{ once: true }}
               className="p-8 rounded-3xl bg-card/50 border border-border backdrop-blur-sm shadow-sm"
             >
-              <h5 className="font-heading text-sm font-bold text-foreground mb-4">Current Availability</h5>
+              <h5 className="font-heading text-sm font-bold text-foreground mb-4">{t.contact.availability_title}</h5>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                I&apos;m currently accepting new freelance projects and consulting engagements for Q3 2026.
+                {t.contact.availability_desc}
               </p>
             </motion.div>
           </div>
@@ -97,35 +100,35 @@ export function Contact() {
               <form className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-3">
-                    <label htmlFor="name" className="font-heading text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60 ml-1">Name</label>
+                    <label htmlFor="name" className="font-heading text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60 ml-1">{t.contact.form.name}</label>
                     <input
                       id="name"
                       type="text"
-                      placeholder="Your Name"
+                      placeholder={t.contact.form.name_placeholder}
                       className="w-full rounded-2xl border border-border bg-background px-6 py-4 text-foreground outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/5 transition-all placeholder:text-muted-foreground/40 shadow-sm"
                     />
                   </div>
                   <div className="space-y-3">
-                    <label htmlFor="email" className="font-heading text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60 ml-1">Email</label>
+                    <label htmlFor="email" className="font-heading text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60 ml-1">{t.contact.form.email}</label>
                     <input
                       id="email"
                       type="email"
-                      placeholder="your@email.com"
+                      placeholder={t.contact.form.email_placeholder}
                       className="w-full rounded-2xl border border-border bg-background px-6 py-4 text-foreground outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/5 transition-all placeholder:text-muted-foreground/40 shadow-sm"
                     />
                   </div>
                 </div>
                 <div className="space-y-3">
-                  <label htmlFor="message" className="font-heading text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60 ml-1">Message</label>
+                  <label htmlFor="message" className="font-heading text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60 ml-1">{t.contact.form.message}</label>
                   <textarea
                     id="message"
                     rows={5}
-                    placeholder="Tell me about your project or vision..."
+                    placeholder={t.contact.form.message_placeholder}
                     className="w-full rounded-2xl border border-border bg-background px-6 py-4 text-foreground outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/5 transition-all resize-none placeholder:text-muted-foreground/40 shadow-sm"
                   />
                 </div>
                 <button className="group flex w-full h-16 items-center justify-center gap-3 rounded-2xl bg-primary px-10 text-lg font-bold text-primary-foreground shadow-2xl shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98]">
-                  Send Message
+                  {t.contact.form.cta}
                   <Send className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </button>
               </form>

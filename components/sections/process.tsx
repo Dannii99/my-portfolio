@@ -3,30 +3,11 @@
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
-const steps = [
-  {
-    number: "01",
-    title: "Discovery & Strategy",
-    description: "Deep diving into requirements, user needs, and technical constraints to define a clear architectural roadmap.",
-  },
-  {
-    number: "02",
-    title: "Design & Architecture",
-    description: "Crafting a scalable technical foundation and a high-fidelity visual direction with atmospheric depth.",
-  },
-  {
-    number: "03",
-    title: "Development & Polish",
-    description: "Iterative building with a focus on clean code, performance, and interactive micro-details.",
-  },
-  {
-    number: "04",
-    title: "Deployment & Growth",
-    description: "Launching with confidence and establishing a baseline for continuous improvement and global scale.",
-  },
-]
+import { useLanguage } from "@/components/language-provider"
 
 export function Process() {
+  const { t } = useLanguage()
+
   return (
     <section id="process" className="w-full py-40 px-6 relative overflow-hidden">
       <div className="absolute top-1/2 left-0 h-[800px] w-[800px] -translate-y-1/2 rounded-full bg-primary/5 blur-[150px] -z-10" />
@@ -40,7 +21,7 @@ export function Process() {
             viewport={{ once: true }}
             className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-6xl"
           >
-            Engineering <span className="text-primary italic">Process</span>
+            {t.process.title.split(" ")[0]} <span className="text-primary italic">{t.process.title.split(" ")[1]}</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -49,8 +30,7 @@ export function Process() {
             viewport={{ once: true }}
             className="mt-8 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
-            A methodical approach to building modern digital products, 
-            ensuring quality at every stage of the lifecycle.
+            {t.process.subtitle}
           </motion.p>
         </div>
 
@@ -59,9 +39,9 @@ export function Process() {
           <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent hidden md:block" />
 
           <div className="space-y-40">
-            {steps.map((step, index) => (
+            {t.process.steps.map((step: any, index: number) => (
               <motion.div
-                key={step.number}
+                key={step.title}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
@@ -80,7 +60,7 @@ export function Process() {
                     "font-heading text-7xl md:text-9xl font-black text-foreground/[0.03] leading-none mb-[-2rem] transition-colors group-hover:text-primary/[0.05] dark:text-white/[0.03] dark:group-hover:text-primary/[0.05]",
                     index % 2 === 0 ? "md:mr-[-1rem]" : "md:ml-[-1rem]"
                   )}>
-                    {step.number}
+                    {`0${index + 1}`}
                   </div>
                   <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-6 relative z-10">
                     {step.title}

@@ -3,10 +3,14 @@
 import { Navbar } from "@/components/shared/navbar"
 import { Footer } from "@/components/shared/footer"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
+import { LanguageToggle } from "@/components/ui/language-toggle"
 import { motion } from "framer-motion"
-import { Settings as SettingsIcon } from "lucide-react"
+import { Settings as SettingsIcon, Languages } from "lucide-react"
+import { useLanguage } from "@/components/language-provider"
 
 export default function SettingsPage() {
+  const { t } = useLanguage()
+
   return (
     <div className="relative min-h-screen bg-background text-foreground selection:bg-primary/30">
       <Navbar />
@@ -23,7 +27,7 @@ export default function SettingsPage() {
                 <SettingsIcon className="h-6 w-6" />
               </div>
               <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-                Settings
+                {t.nav.settings}
               </h1>
             </motion.div>
             <motion.p
@@ -55,11 +59,34 @@ export default function SettingsPage() {
               </div>
             </motion.section>
 
-            {/* Placeholder for future settings */}
+            {/* Language Section */}
             <motion.section
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
+              className="p-10 rounded-3xl bg-card/50 border border-border backdrop-blur-sm shadow-sm"
+            >
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+                <div className="flex items-start gap-4">
+                  <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-xl bg-secondary/10 border border-secondary/20 text-secondary">
+                    <Languages className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h2 className="font-heading text-2xl font-bold text-foreground mb-2">Language</h2>
+                    <p className="text-sm text-muted-foreground">
+                      Select your preferred language for the interface.
+                    </p>
+                  </div>
+                </div>
+                <LanguageToggle />
+              </div>
+            </motion.section>
+
+            {/* Placeholder for future settings */}
+            <motion.section
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
               className="p-10 rounded-3xl bg-muted/30 border border-border opacity-60"
             >
               <div className="flex flex-col gap-4">

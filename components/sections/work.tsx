@@ -4,35 +4,44 @@ import { motion } from "framer-motion"
 import { SpotlightCard } from "@/components/ui/spotlight-card"
 import { ExternalLink, Github } from "lucide-react"
 import Image from "next/image"
-
-const projects = [
-  {
-    title: "Quantum Dashboard",
-    description: "A high-performance data visualization platform with real-time stream processing and advanced analytics.",
-    image: "/window.svg", 
-    tags: ["Next.js", "TypeScript", "D3.js"],
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "Ethereal UI Kit",
-    description: "A comprehensive design system focused on glassmorphism, depth, and atmospheric motion.",
-    image: "/window.svg",
-    tags: ["React", "Tailwind 4", "Framer Motion"],
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "Nexus Commerce",
-    description: "Modern e-commerce engine with headless architecture, edge-caching, and global scale.",
-    image: "/window.svg",
-    tags: ["Next.js", "Shopify", "GraphQL"],
-    link: "#",
-    github: "#",
-  },
-]
+import { useLanguage } from "@/components/language-provider"
 
 export function Work() {
+  const { t } = useLanguage()
+
+  const projects = [
+    {
+      title: t.work.projects[0].title,
+      description: t.work.projects[0].description,
+      image: "/window.svg", 
+      tags: ["Next.js", "TypeScript", "D3.js"],
+      link: "#",
+      github: "#",
+      live_text: t.work.projects[0].live,
+      source_text: t.work.projects[0].source,
+    },
+    {
+      title: t.work.projects[1].title,
+      description: t.work.projects[1].description,
+      image: "/window.svg",
+      tags: ["React", "Tailwind 4", "Framer Motion"],
+      link: "#",
+      github: "#",
+      live_text: t.work.projects[1].live,
+      source_text: t.work.projects[1].source,
+    },
+    {
+      title: t.work.projects[2].title,
+      description: t.work.projects[2].description,
+      image: "/window.svg",
+      tags: ["Next.js", "Shopify", "GraphQL"],
+      link: "#",
+      github: "#",
+      live_text: t.work.projects[2].live,
+      source_text: t.work.projects[2].source,
+    },
+  ]
+
   return (
     <section id="work" className="w-full py-32 px-6 relative">
       <div className="absolute top-0 right-0 h-64 w-64 rounded-full bg-accent/5 blur-[100px] -z-10" />
@@ -46,7 +55,7 @@ export function Work() {
             viewport={{ once: true }}
             className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-6xl"
           >
-            Selected <span className="text-primary italic">Work</span>
+            {t.work.title.split(" ")[0]} <span className="text-primary italic">{t.work.title.split(" ").slice(1).join(" ")}</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, x: -20 }}
@@ -55,8 +64,7 @@ export function Work() {
             viewport={{ once: true }}
             className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed"
           >
-            A curated selection of projects that demonstrate my focus on 
-            performance, aesthetics, and scalable architecture.
+            {t.work.subtitle}
           </motion.p>
         </div>
 
@@ -94,11 +102,11 @@ export function Work() {
                   <div className="mt-8 flex items-center gap-6">
                     <button className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-foreground hover:text-primary transition-colors">
                       <ExternalLink className="h-4 w-4" />
-                      Live Demo
+                      {project.live_text}
                     </button>
                     <button className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-foreground hover:text-primary transition-colors">
                       <Github className="h-4 w-4" />
-                      Source
+                      {project.source_text}
                     </button>
                   </div>
                 </div>

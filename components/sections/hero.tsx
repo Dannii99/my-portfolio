@@ -3,8 +3,10 @@
 import { motion, useMotionValue, useSpring } from "framer-motion"
 import { ArrowRight, ChevronDown } from "lucide-react"
 import { useEffect } from "react"
+import { useLanguage } from "@/components/language-provider"
 
 export function Hero() {
+  const { t, locale } = useLanguage()
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
 
@@ -45,7 +47,7 @@ export function Hero() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
           </span>
-          Senior Frontend Architect
+          {t.hero.badge}
         </motion.div>
 
         <motion.h1
@@ -54,10 +56,21 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="font-heading text-balance text-5xl font-extrabold leading-[1.1] tracking-tight text-foreground md:text-8xl lg:text-[7rem]"
         >
-          Architecting <span className="italic font-light opacity-80">Ethereal</span> <br />
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#8B5CF6]/80 via-[#8B5CF6]/70 to-[#0EA5E9]/80 saturate-[1.1] brightness-[1.1] dark:from-[#9b7de0]/70 dark:via-[#9b7de0] dark:to-[#5891ac]">
-            Digital Experiences
-          </span>
+          {locale === "en" ? (
+            <>
+              Architecting <span className="italic font-light opacity-80">Ethereal</span> <br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#8B5CF6]/80 via-[#8B5CF6]/70 to-[#0EA5E9]/80 saturate-[1.1] brightness-[1.1] dark:from-[#9b7de0]/70 dark:via-[#9b7de0] dark:to-[#5891ac]">
+                Digital Experiences
+              </span>
+            </>
+          ) : (
+            <>
+              Arquitectando <span className="italic font-light opacity-80">Experiencias</span> <br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#8B5CF6]/80 via-[#8B5CF6]/70 to-[#0EA5E9]/80 saturate-[1.1] brightness-[1.1] dark:from-[#9b7de0]/70 dark:via-[#9b7de0] dark:to-[#5891ac]">
+                Digitales Etéreas
+              </span>
+            </>
+          )}
         </motion.h1>
 
         <motion.p
@@ -66,8 +79,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mx-auto mt-10 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl"
         >
-          Crafting high-end web applications with a focus on performance, 
-          aesthetics, and human-centric interaction design.
+          {t.hero.subheadline}
         </motion.p>
 
         <motion.div
@@ -77,11 +89,11 @@ export function Hero() {
           className="mt-14 flex flex-wrap items-center justify-center gap-8"
         >
           <button className="group flex h-16 items-center gap-3 rounded-2xl bg-primary px-10 text-lg font-bold text-primary-foreground shadow-2xl shadow-primary/20 transition-all hover:scale-105 active:scale-95">
-            Explore My Work
+            {t.hero.cta_work}
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
           </button>
           <button className="flex h-16 items-center gap-3 rounded-2xl border border-border bg-card px-10 text-lg font-bold text-foreground backdrop-blur-xl transition-all hover:bg-muted shadow-sm">
-            About Me
+            {t.hero.cta_about}
           </button>
         </motion.div>
       </div>

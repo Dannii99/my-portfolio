@@ -4,17 +4,15 @@ import * as React from "react"
 import { motion } from "framer-motion"
 import { useLanguage } from "@/components/language-provider"
 import { cn } from "@/lib/utils"
-import { Languages } from "lucide-react"
 
 export function LanguageToggle() {
   const { locale, setLocale } = useLanguage()
 
   return (
-    <div className="relative flex items-center p-1 rounded-xl bg-white/5 border border-white/5 backdrop-blur-md w-fit">
-      <div className="relative flex items-center gap-1">
-        {/* Animated Background Indicator */}
+    <div className="relative flex items-center p-1 bg-[#34353b] border border-[#161616] w-fit">
+      <div className="relative flex items-center gap-0">
         <motion.div
-          className="absolute inset-y-0 rounded-lg bg-primary shadow-lg shadow-primary/20"
+          className="absolute inset-y-0 bg-[#dddedd]"
           initial={false}
           animate={{
             x: locale === "en" ? 0 : "100%",
@@ -27,23 +25,21 @@ export function LanguageToggle() {
           }}
         />
 
-        {/* English Option */}
         <button
           onClick={() => setLocale("en")}
           className={cn(
-            "relative z-10 flex items-center gap-2 px-4 py-2 text-[10px] font-bold uppercase tracking-widest transition-colors duration-300",
-            locale === "en" ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+            "relative z-10 flex items-center gap-2 px-6 py-2 text-[10px] font-black uppercase tracking-tighter transition-colors duration-300",
+            locale === "en" ? "text-[#161616]" : "text-[#dddedd] hover:text-[#585a5f]"
           )}
         >
           <span>EN</span>
         </button>
 
-        {/* Spanish Option */}
         <button
           onClick={() => setLocale("es")}
           className={cn(
-            "relative z-10 flex items-center gap-2 px-4 py-2 text-[10px] font-bold uppercase tracking-widest transition-colors duration-300",
-            locale === "es" ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+            "relative z-10 flex items-center gap-2 px-6 py-2 text-[10px] font-black uppercase tracking-tighter transition-colors duration-300",
+            locale === "es" ? "text-[#161616]" : "text-[#dddedd] hover:text-[#585a5f]"
           )}
         >
           <span>ES</span>

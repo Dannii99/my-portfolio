@@ -10,11 +10,10 @@ export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
 
   return (
-    <div className="relative flex items-center p-1 rounded-xl bg-white/5 border border-white/5 backdrop-blur-md w-fit">
-      <div className="relative flex items-center gap-1">
-        {/* Animated Background Indicator */}
+    <div className="relative flex items-center p-1 bg-[#34353b] border border-[#161616] w-fit">
+      <div className="relative flex items-center gap-0">
         <motion.div
-          className="absolute inset-y-0 rounded-lg bg-primary shadow-lg shadow-primary/20"
+          className="absolute inset-y-0 bg-[#dddedd]"
           initial={false}
           animate={{
             x: theme === "light" ? 0 : "100%",
@@ -27,27 +26,25 @@ export function ThemeToggle() {
           }}
         />
 
-        {/* Light Option */}
         <button
           onClick={() => setTheme("light")}
           className={cn(
-            "relative z-10 flex items-center gap-2 px-4 py-2 text-sm font-bold transition-colors duration-300",
-            theme === "light" ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+            "relative z-10 flex items-center gap-2 px-6 py-2 text-[10px] font-black uppercase tracking-tighter transition-colors duration-300",
+            theme === "light" ? "text-[#161616]" : "text-[#dddedd] hover:text-[#585a5f]"
           )}
         >
-          <Sun className="h-4 w-4" />
+          <Sun className="h-3.5 w-3.5" />
           <span>Light</span>
         </button>
 
-        {/* Dark Option */}
         <button
           onClick={() => setTheme("dark")}
           className={cn(
-            "relative z-10 flex items-center gap-2 px-4 py-2 text-sm font-bold transition-colors duration-300",
-            theme === "dark" ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+            "relative z-10 flex items-center gap-2 px-6 py-2 text-[10px] font-black uppercase tracking-tighter transition-colors duration-300",
+            theme === "dark" ? "text-[#161616]" : "text-[#dddedd] hover:text-[#585a5f]"
           )}
         >
-          <Moon className="h-4 w-4" />
+          <Moon className="h-3.5 w-3.5" />
           <span>Dark</span>
         </button>
       </div>

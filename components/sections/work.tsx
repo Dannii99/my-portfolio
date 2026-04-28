@@ -1,10 +1,19 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { SpotlightCard } from "@/components/ui/spotlight-card"
-import { ExternalLink, Github } from "lucide-react"
+import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 import { useLanguage } from "@/components/language-provider"
+
+// Swiper imports
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { EffectCoverflow, Navigation, Pagination } from 'swiper/modules'
+
+// Swiper styles
+import 'swiper/css'
+import 'swiper/css/effect-coverflow'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 export function Work() {
   const { t, locale } = useLanguage()
@@ -47,98 +56,132 @@ export function Work() {
   ]
 
   return (
-    <section id="work" className="w-full py-32 px-6 relative">
-      <div className="absolute top-0 right-0 h-64 w-64 rounded-full bg-accent/5 blur-[100px] -z-10" />
-      
+    <section id="work" className="w-full py-32 px-6 bg-[#161616] overflow-hidden">
       <div className="container mx-auto">
-        <div className="mb-20">
+        <div className="mb-24">
           <motion.h2 
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-6xl"
+            className="font-heading text-7xl md:text-[10rem] font-black tracking-tighter text-[#dddedd] uppercase leading-[0.8]"
           >
-            {t.work.title.split(" ")[0]} <span className="text-primary italic">{t.work.title.split(" ").slice(1).join(" ")}</span>
+            {t.work.title.split(" ")[0]} <br />
+            <span className="text-[#585a5f]">{t.work.title.split(" ").slice(1).join(" ")}</span>
           </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed"
-          >
-            {t.work.subtitle}
-          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group cursor-pointer"
-              onClick={() => window.open(project.link, "_blank")}
-            >
-              <SpotlightCard className="h-full overflow-hidden border-border bg-card/50 shadow-sm hover:bg-card/80 transition-all duration-500">
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className={`transition-all duration-700 group-hover:scale-110 ${
-                      project.image.endsWith(".png") 
-                        ? "object-cover opacity-80 group-hover:opacity-100" 
-                        : "object-contain p-10 opacity-10 grayscale group-hover:opacity-30 group-hover:grayscale-0"
-                    }`}
-                  />
-                </div>
-                <div className="p-10">
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="text-[9px] font-bold uppercase tracking-wider text-primary/70 bg-primary/5 px-2.5 py-1 rounded-full border border-primary/10">
-                        {tag}
-                      </span>
-                    ))}
+        <div className="relative pb-20">
+          <Swiper
+            effect={'coverflow'}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={'auto'}
+            coverflowEffect={{
+              rotate: 30,
+              stretch: 0,
+              depth: 200,
+              modifier: 1,
+              slideShadows: false,
+            }}
+            navigation={{
+              nextEl: '.swiper-button-next-custom',
+              prevEl: '.swiper-button-prev-custom',
+            }}
+            pagination={{
+              clickable: true,
+              bulletClass: 'swiper-pagination-bullet !bg-[#34353b] !opacity-100 !rounded-none !w-8 !h-1',
+              bulletActiveClass: '!bg-[#dddedd] !w-16',
+            }}
+            modules={[EffectCoverflow, Navigation, Pagination]}
+            className="w-full !py-20"
+          >
+            {projects.map((project, index) => (
+              <SwiperSlide 
+                key={project.title} 
+                className="!w-[320px] md:!w-[600px] group select-none"
+              >
+                {({ isActive }) => (
+                  <div className={`transition-all duration-700 ${isActive ? 'opacity-100 scale-100' : 'opacity-40 scale-90 grayscale'}`}>
+                    <div className="bg-[#34353b] p-1">
+                      <div className="relative aspect-[16/10] w-full overflow-hidden">
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className={`absolute inset-0 bg-[#161616]/40 transition-opacity duration-500 ${isActive ? 'opacity-0' : 'opacity-100'}`} />
+                      </div>
+                      
+                      <div className="p-8 md:p-12 bg-[#161616] mt-1">
+                        <div className="flex flex-wrap gap-2 mb-8">
+                          {project.tags.map((tag) => (
+                            <span key={tag} className="text-[9px] font-black uppercase tracking-tighter text-[#dddedd] bg-[#34353b] px-3 py-1">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        
+                        <h3 className="font-heading text-3xl md:text-5xl font-black text-[#dddedd] uppercase tracking-tighter mb-6">
+                          {project.title}
+                        </h3>
+                        
+                        <p className="text-[#585a5f] text-xs md:text-sm font-bold uppercase tracking-widest leading-relaxed line-clamp-3 mb-10">
+                          {project.description}
+                        </p>
+                        
+                        <div className="flex items-center gap-10 pt-8 border-t border-[#34353b]">
+                          <a 
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-[#dddedd] hover:text-[#585a5f] transition-colors"
+                          >
+                            <ExternalLink className="h-4 w-4" />
+                            {project.live_text}
+                          </a>
+                          <a 
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-[#dddedd] hover:text-[#585a5f] transition-colors"
+                          >
+                            <Github className="h-4 w-4" />
+                            {project.source_text}
+                          </a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="font-heading text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                    {project.title}
-                  </h3>
-                  <p className="mt-4 text-muted-foreground text-sm leading-relaxed line-clamp-3">
-                    {project.description}
-                  </p>
-                  <div className="mt-8 flex items-center gap-6">
-                    <a 
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-foreground hover:text-primary transition-colors"
-                    >
-                      <ExternalLink className="h-4 w-4" />
-                      {project.live_text}
-                    </a>
-                    <a 
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-foreground hover:text-primary transition-colors"
-                    >
-                      <Github className="h-4 w-4" />
-                      {project.source_text}
-                    </a>
-                  </div>
-                </div>
-              </SpotlightCard>
-            </motion.div>
-          ))}
+                )}
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* Custom Navigation Buttons */}
+          <div className="flex justify-center items-center gap-8 mt-12">
+            <button className="swiper-button-prev-custom h-14 w-14 flex items-center justify-center border border-[#34353b] text-[#dddedd] hover:bg-[#dddedd] hover:text-[#161616] transition-all active:scale-90">
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+            <button className="swiper-button-next-custom h-14 w-14 flex items-center justify-center border border-[#34353b] text-[#dddedd] hover:bg-[#dddedd] hover:text-[#161616] transition-all active:scale-90">
+              <ChevronRight className="h-6 w-6" />
+            </button>
+          </div>
         </div>
       </div>
+
+      <style jsx global>{`
+        .swiper-pagination-bullets {
+          bottom: 0 !important;
+          display: flex;
+          justify-content: center;
+          gap: 12px;
+        }
+        .swiper-pagination-bullet {
+          transition: all 0.5s ease-in-out !important;
+        }
+      `}</style>
     </section>
   )
 }

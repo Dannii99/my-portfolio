@@ -28,56 +28,50 @@ export function Hero() {
       <motion.div
         className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
         style={{
-          background: `radial-gradient(1000px circle at ${springX}px ${springY}px, var(--color-primary) 0.08, transparent 70%)`,
+          background: `radial-gradient(800px circle at ${springX}px ${springY}px, rgba(88, 90, 95, 0.15), transparent 80%)`,
         }}
       />
       
-      {/* Background Glows (Atmospheric) */}
-      <div className="absolute top-1/4 -left-20 h-96 w-96 rounded-full bg-primary/20 blur-[120px]" />
-      <div className="absolute bottom-1/4 -right-20 h-96 w-96 rounded-full bg-secondary/15 blur-[120px]" />
+      {/* Background Shapes (Brutalist Style) */}
+      <div className="absolute top-1/4 -left-20 h-96 w-96 rounded-full bg-[#34353b]/20 blur-[120px]" />
+      <div className="absolute bottom-1/4 -right-20 h-96 w-96 rounded-full bg-[#585a5f]/10 blur-[120px]" />
 
-      <div className="container relative z-10 mx-auto text-center">
+      <div className="container relative z-10 mx-auto text-center flex flex-col items-center">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="font-heading text-xl md:text-2xl font-light tracking-[0.3em] uppercase text-muted-foreground/80 mb-2"
+        >
+          {locale === "en" ? "I am" : "Yo soy"}
+        </motion.p>
+
+        <motion.h1
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="font-heading text-[18vw] md:text-[12rem] font-black leading-none tracking-tighter text-[#dddedd] uppercase selection:bg-[#585a5f] selection:text-white"
+        >
+          Danny
+        </motion.h1>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-12 shadow-[0_0_15px_rgba(var(--color-primary),0.2)]"
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-6 flex flex-col items-center"
         >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-          </span>
-          {t.hero.badge}
+          <p className="font-heading text-lg md:text-2xl font-bold tracking-[0.1em] text-[#585a5f] uppercase">
+            Senior Web Frontend
+          </p>
+          <div className="h-px w-20 bg-[#34353b] mt-6" />
         </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-heading text-balance text-5xl font-extrabold leading-[1.1] tracking-tight text-foreground md:text-8xl lg:text-[7rem]"
-        >
-          {locale === "en" ? (
-            <>
-              Architecting <span className="italic font-light opacity-80">Ethereal</span> <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent saturate-[1.3] brightness-[1.2]">
-                Digital Experiences
-              </span>
-            </>
-          ) : (
-            <>
-              Arquitectando <span className="italic font-light opacity-80">Experiencias</span> <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent saturate-[1.3] brightness-[1.2]">
-                Digitales Etéreas
-              </span>
-            </>
-          )}
-        </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mx-auto mt-10 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl"
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mx-auto mt-10 max-w-xl text-sm md:text-base leading-relaxed text-muted-foreground/60 uppercase tracking-widest"
         >
           {t.hero.subheadline}
         </motion.p>
@@ -85,14 +79,14 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-14 flex flex-wrap items-center justify-center gap-8"
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-14 flex flex-wrap items-center justify-center gap-6"
         >
-          <button className="group flex h-16 items-center gap-3 rounded-2xl bg-primary px-10 text-lg font-bold text-primary-foreground shadow-2xl shadow-primary/20 transition-all hover:scale-105 active:scale-95">
+          <button className="group relative flex h-16 items-center gap-3 rounded-none border border-[#dddedd]/20 bg-[#dddedd] px-10 text-xs font-black uppercase tracking-widest text-[#161616] transition-all hover:bg-transparent hover:text-[#dddedd]">
             {t.hero.cta_work}
-            <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="h-4 w-4" />
           </button>
-          <button className="flex h-16 items-center gap-3 rounded-2xl border border-border bg-card px-10 text-lg font-bold text-foreground backdrop-blur-xl transition-all hover:bg-muted shadow-sm">
+          <button className="group relative flex h-16 items-center gap-3 rounded-none border border-[#dddedd]/20 bg-transparent px-10 text-xs font-black uppercase tracking-widest text-[#dddedd] transition-all hover:bg-[#dddedd] hover:text-[#161616]">
             {t.hero.cta_about}
           </button>
         </motion.div>
@@ -102,9 +96,9 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce text-muted-foreground/50"
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 text-muted-foreground/30"
       >
-        <ChevronDown className="h-6 w-6" />
+        <ChevronDown className="h-5 w-5 animate-bounce" />
       </motion.div>
     </section>
   )

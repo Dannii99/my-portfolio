@@ -1,88 +1,58 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { cn } from "@/lib/utils"
-
 import { useLanguage } from "@/components/language-provider"
 
 export function Process() {
   const { t } = useLanguage()
 
   return (
-    <section id="process" className="w-full py-40 px-6 relative overflow-hidden">
-      <div className="absolute top-1/2 left-0 h-[800px] w-[800px] -translate-y-1/2 rounded-full bg-primary/5 blur-[150px] -z-10" />
-      
-      <div className="container mx-auto relative z-10">
-        <div className="mb-32 text-center">
+    <section id="process" className="w-full py-32 px-6 bg-[#161616] border-y border-[#34353b]">
+      <div className="container mx-auto">
+        <div className="mb-24">
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-6xl"
+            className="font-heading text-6xl md:text-9xl font-black tracking-tighter text-[#dddedd] uppercase leading-none"
           >
-            {t.process.title.split(" ")[0]} <span className="text-primary italic">{t.process.title.split(" ")[1]}</span>
+            Process
           </motion.h2>
           <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="mt-8 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+            className="mt-8 text-sm uppercase tracking-[0.4em] font-bold text-[#585a5f] max-w-xl"
           >
             {t.process.subtitle}
           </motion.p>
         </div>
 
-        <div className="relative max-w-5xl mx-auto">
-          {/* Vertical Line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent hidden md:block" />
-
-          <div className="space-y-40">
-            {t.process.steps.map((step: any, index: number) => (
-              <motion.div
-                key={step.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true, margin: "-100px" }}
-                className={cn(
-                  "relative flex flex-col md:flex-row items-center gap-12",
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                )}
-              >
-                {/* Step Content */}
-                <div className={cn(
-                  "flex-1 text-center group",
-                  index % 2 === 0 ? "md:text-right" : "md:text-left"
-                )}>
-                  <div className={cn(
-                    "font-heading text-7xl md:text-9xl font-black text-foreground/[0.03] leading-none mb-[-2rem] transition-colors group-hover:text-primary/[0.05] dark:text-white/[0.03] dark:group-hover:text-primary/[0.05]",
-                    index % 2 === 0 ? "md:mr-[-1rem]" : "md:ml-[-1rem]"
-                  )}>
-                    {`0${index + 1}`}
-                  </div>
-                  <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-6 relative z-10">
-                    {step.title}
-                  </h3>
-                  <p className={cn(
-                    "text-muted-foreground leading-relaxed max-w-md mx-auto relative z-10",
-                    index % 2 === 0 ? "md:ml-auto" : "md:mr-auto"
-                  )}>
-                    {step.description}
-                  </p>
-                </div>
-
-                {/* Center Node */}
-                <div className="relative z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-card border border-border shadow-xl transition-transform hover:scale-110">
-                  <div className="h-4 w-4 rounded-full bg-primary shadow-[0_0_20px_rgba(46,91,255,0.4)] dark:shadow-[0_0_20px_rgba(46,91,255,0.8)]" />
-                </div>
-
-                {/* Empty Space for alignment */}
-                <div className="flex-1 hidden md:block" />
-              </motion.div>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-[#34353b]">
+          {t.process.steps.map((step, index) => (
+            <motion.div
+              key={step.title}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="group relative p-10 border-[#34353b] md:border-r last:border-r-0 border-b md:border-b-0 hover:bg-[#dddedd] transition-colors duration-500"
+            >
+              <span className="absolute top-6 right-8 font-heading text-6xl font-black text-[#34353b]/20 group-hover:text-[#161616]/10 transition-colors">
+                0{index + 1}
+              </span>
+              <div className="relative z-10">
+                <h3 className="font-heading text-2xl font-black text-[#dddedd] group-hover:text-[#161616] uppercase tracking-tighter mb-6 transition-colors">
+                  {step.title}
+                </h3>
+                <p className="text-xs font-bold uppercase tracking-widest leading-relaxed text-[#585a5f] group-hover:text-[#161616]/80 transition-colors">
+                  {step.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

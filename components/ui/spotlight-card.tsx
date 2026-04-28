@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 export function SpotlightCard({
   children,
   className,
-  spotlightColor = "rgba(46, 91, 255, 0.15)",
+  spotlightColor = "rgba(221, 222, 221, 0.05)",
 }: {
   children: React.ReactNode
   className?: string
@@ -35,18 +35,18 @@ export function SpotlightCard({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={cn(
-        "group relative overflow-hidden rounded-2xl border border-border/10 bg-card/60 backdrop-blur-md transition-all duration-300 hover:border-primary/20",
+        "group relative overflow-hidden rounded-none border border-[#34353b] bg-[#161616] transition-all duration-300",
         className
       )}
     >
       <motion.div
-        className="pointer-events-none absolute -inset-px rounded-2xl transition duration-300"
+        className="pointer-events-none absolute -inset-px rounded-none transition duration-300"
         style={{
-          background: `radial-gradient(600px circle at ${springX}px ${springY}px, ${spotlightColor}, transparent 40%)`,
+          background: `radial-gradient(400px circle at ${springX}px ${springY}px, ${spotlightColor}, transparent 60%)`,
           opacity: isHovered ? 1 : 0,
         }}
       />
-      <div className="relative z-10">{children}</div>
+      <div className="relative z-10 h-full">{children}</div>
     </div>
   )
 }

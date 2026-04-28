@@ -1,3 +1,5 @@
+"use client"
+
 import { Navbar } from "@/components/shared/navbar"
 import { Footer } from "@/components/shared/footer"
 import { Hero } from "@/components/sections/hero"
@@ -8,9 +10,9 @@ import { Contact } from "@/components/sections/contact"
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-background text-foreground selection:bg-primary/30">
+    <div className="relative min-h-screen bg-[#161616] text-[#dddedd] selection:bg-[#585a5f] selection:text-white">
       <Navbar />
-      <main>
+      <main className="flex flex-col">
         <Hero />
         <Expertise />
         <Work />

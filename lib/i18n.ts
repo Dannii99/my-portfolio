@@ -61,8 +61,8 @@ export const translations = {
           source: "Source",
         },
         {
-          title: "Nexus Commerce",
-          description: "Modern e-commerce engine with headless architecture, edge-caching, and global scale.",
+          title: "Wedding Invitation",
+          description: "A beautiful and interactive wedding invitation with elegant design, smooth animations, and personalized experience.",
           live: "Live Demo",
           source: "Source",
         },
@@ -174,8 +174,8 @@ export const translations = {
           source: "Código",
         },
         {
-          title: "Nexus Commerce",
-          description: "Motor de comercio moderno con arquitectura headless, edge-caching y escala global.",
+          title: "Invitación de Boda",
+          description: "Una hermosa e interactiva invitación de boda con diseño elegante, animaciones fluidas y experiencia personalizada.",
           live: "Demo en Vivo",
           source: "Código",
         },

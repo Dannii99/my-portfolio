@@ -15,30 +15,32 @@ export function Work() {
       description: locale === "en" 
         ? "A high-performance interactive dashboard for Pokémon data, featuring real-time filtering and an immersive UX built with React and advanced CSS."
         : "Un dashboard interactivo de alto rendimiento para datos de Pokémon, con filtrado en tiempo real y una UX inmersiva construida con React y CSS avanzado.",
-      image: "/globe.svg", 
+      image: "/img/pokemon-go.png", 
       tags: ["React", "CSS3", "Vercel", "API Rest"],
-      link: "https://pokemon-go-rosy.vercel.app/home",
+      link: "https://pokemon-go-rosy.vercel.app/",
       github: "https://github.com/Dannii99/pokemon-go",
       live_text: t.work.projects[0].live,
       source_text: t.work.projects[0].source,
     },
     {
-      title: t.work.projects[1].title,
-      description: t.work.projects[1].description,
-      image: "/window.svg",
-      tags: ["React", "Tailwind 4", "Framer Motion"],
-      link: "#",
-      github: "#",
+      title: "Yupy TV",
+      description: locale === "en" 
+        ? "A premium streaming platform experience with a sleek interface, categorized content, and a focus on high-quality video delivery and user engagement."
+        : "Una experiencia de plataforma de streaming premium con una interfaz elegante, contenido categorizado y un enfoque en la entrega de video de alta calidad.",
+      image: "/img/yupi-tv.png",
+      tags: ["Next.js", "Tailwind CSS", "Vercel", "Video Streaming"],
+      link: "https://yupy-tv.vercel.app/",
+      github: "https://github.com/Dannii99/yupy-tv",
       live_text: t.work.projects[1].live,
       source_text: t.work.projects[1].source,
     },
     {
       title: t.work.projects[2].title,
       description: t.work.projects[2].description,
-      image: "/window.svg",
-      tags: ["Next.js", "Shopify", "GraphQL"],
-      link: "#",
-      github: "#",
+      image: "/img/invitacion-boda.png",
+      tags: ["React", "Framer Motion", "Tailwind CSS"],
+      link: "https://wedding-invitation-one.vercel.app/",
+      github: "https://github.com/Dannii99/Wedding-invitation",
       live_text: t.work.projects[2].live,
       source_text: t.work.projects[2].source,
     },
@@ -78,15 +80,21 @@ export function Work() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
+              className="group cursor-pointer"
+              onClick={() => window.open(project.link, "_blank")}
             >
-              <SpotlightCard className="overflow-hidden border-border bg-card/50 shadow-sm hover:bg-card/80">
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted p-10">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <SpotlightCard className="h-full overflow-hidden border-border bg-card/50 shadow-sm hover:bg-card/80 transition-all duration-500">
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-contain opacity-10 grayscale transition-all duration-700 group-hover:opacity-30 group-hover:grayscale-0 group-hover:scale-105"
+                    className={`transition-all duration-700 group-hover:scale-110 ${
+                      project.image.endsWith(".png") 
+                        ? "object-cover opacity-80 group-hover:opacity-100" 
+                        : "object-contain p-10 opacity-10 grayscale group-hover:opacity-30 group-hover:grayscale-0"
+                    }`}
                   />
                 </div>
                 <div className="p-10">
@@ -97,19 +105,33 @@ export function Work() {
                       </span>
                     ))}
                   </div>
-                  <h3 className="font-heading text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">{project.title}</h3>
-                  <p className="mt-4 text-muted-foreground text-sm leading-relaxed">
+                  <h3 className="font-heading text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  <p className="mt-4 text-muted-foreground text-sm leading-relaxed line-clamp-3">
                     {project.description}
                   </p>
                   <div className="mt-8 flex items-center gap-6">
-                    <button className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-foreground hover:text-primary transition-colors">
+                    <a 
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-foreground hover:text-primary transition-colors"
+                    >
                       <ExternalLink className="h-4 w-4" />
                       {project.live_text}
-                    </button>
-                    <button className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-foreground hover:text-primary transition-colors">
+                    </a>
+                    <a 
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-foreground hover:text-primary transition-colors"
+                    >
                       <Github className="h-4 w-4" />
                       {project.source_text}
-                    </button>
+                    </a>
                   </div>
                 </div>
               </SpotlightCard>

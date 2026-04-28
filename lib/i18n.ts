@@ -113,6 +113,22 @@ export const translations = {
       connect_title: "Connect",
       rights: "All rights reserved.",
     },
+    settings_page: {
+      title: "Settings",
+      subtitle: "Customize your experience and manage your application preferences.",
+      appearance: {
+        title: "Appearance",
+        description: "Customize the look and feel of the application.",
+      },
+      language: {
+        title: "Language",
+        description: "Select your preferred language for the interface.",
+      },
+      general: {
+        title: "General Preferences",
+        coming_soon: "More settings coming soon...",
+      },
+    },
   },
   es: {
     nav: {
@@ -225,6 +241,22 @@ export const translations = {
       nav_title: "Navegación",
       connect_title: "Conectar",
       rights: "Todos los derechos reservados.",
+    },
+    settings_page: {
+      title: "Ajustes",
+      subtitle: "Personaliza tu experiencia y gestiona tus preferencias de la aplicación.",
+      appearance: {
+        title: "Apariencia",
+        description: "Personaliza el aspecto y la sensación de la aplicación.",
+      },
+      language: {
+        title: "Idioma",
+        description: "Selecciona tu idioma preferido para la interfaz.",
+      },
+      general: {
+        title: "Preferencias Generales",
+        coming_soon: "Más ajustes próximamente...",
+      },
     },
   },
 }

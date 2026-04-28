@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Mail, MessageSquare, Send, Linkedin, Twitter, Github } from "lucide-react"
+import { Mail, MessageSquare, Send, Linkedin, Github } from "lucide-react"
 import { SpotlightCard } from "@/components/ui/spotlight-card"
 
 import { useLanguage } from "@/components/language-provider"
@@ -67,9 +67,12 @@ export function Contact() {
                 <div>
                   <h4 className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60 mb-1">{t.contact.social_label}</h4>
                   <div className="flex gap-4 mt-2">
-                    <Linkedin className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-                    <Twitter className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-                    <Github className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+                    <a href="https://www.linkedin.com/in/danny-ospino-82360b211/" target="_blank" rel="noopener noreferrer">
+                      <Linkedin className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+                    </a>
+                    <a href="https://github.com/Dannii99" target="_blank" rel="noopener noreferrer">
+                      <Github className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+                    </a>
                   </div>
                 </div>
               </motion.div>

@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Cpu, Github, Linkedin, Twitter, Sparkles } from "lucide-react"
+import { Cpu, Github, Linkedin, Sparkles } from "lucide-react"
 
 import { useLanguage } from "@/components/language-provider"
 
@@ -47,14 +47,11 @@ export function Footer() {
           <div className="space-y-6">
             <h4 className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-foreground">{t.footer.connect_title}</h4>
             <div className="flex gap-4">
-              <Link href="#" className="h-12 w-12 flex items-center justify-center rounded-2xl bg-muted border border-border text-muted-foreground hover:text-primary hover:border-primary/20 transition-all hover:scale-110">
+              <Link href="https://github.com/Dannii99" target="_blank" className="h-12 w-12 flex items-center justify-center rounded-2xl bg-muted border border-border text-muted-foreground hover:text-primary hover:border-primary/20 transition-all hover:scale-110">
                 <Github className="h-5 w-5" />
               </Link>
-              <Link href="#" className="h-12 w-12 flex items-center justify-center rounded-2xl bg-muted border border-border text-muted-foreground hover:text-primary hover:border-primary/20 transition-all hover:scale-110">
+              <Link href="https://www.linkedin.com/in/danny-ospino-82360b211/" target="_blank" className="h-12 w-12 flex items-center justify-center rounded-2xl bg-muted border border-border text-muted-foreground hover:text-primary hover:border-primary/20 transition-all hover:scale-110">
                 <Linkedin className="h-5 w-5" />
-              </Link>
-              <Link href="#" className="h-12 w-12 flex items-center justify-center rounded-2xl bg-muted border border-border text-muted-foreground hover:text-primary hover:border-primary/20 transition-all hover:scale-110">
-                <Twitter className="h-5 w-5" />
               </Link>
             </div>
           </div>

@@ -27,7 +27,7 @@ export default function SettingsPage() {
                 <SettingsIcon className="h-6 w-6" />
               </div>
               <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-                {t.nav.settings}
+                {t.settings_page.title}
               </h1>
             </motion.div>
             <motion.p
@@ -36,7 +36,7 @@ export default function SettingsPage() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="text-lg text-muted-foreground max-w-2xl leading-relaxed"
             >
-              Customize your experience and manage your application preferences.
+              {t.settings_page.subtitle}
             </motion.p>
           </div>
 
@@ -50,9 +50,9 @@ export default function SettingsPage() {
             >
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
                 <div>
-                  <h2 className="font-heading text-2xl font-bold text-foreground mb-2">Appearance</h2>
+                  <h2 className="font-heading text-2xl font-bold text-foreground mb-2">{t.settings_page.appearance.title}</h2>
                   <p className="text-sm text-muted-foreground">
-                    Customize the look and feel of the application.
+                    {t.settings_page.appearance.description}
                   </p>
                 </div>
                 <ThemeToggle />
@@ -72,9 +72,9 @@ export default function SettingsPage() {
                     <Languages className="h-5 w-5" />
                   </div>
                   <div>
-                    <h2 className="font-heading text-2xl font-bold text-foreground mb-2">Language</h2>
+                    <h2 className="font-heading text-2xl font-bold text-foreground mb-2">{t.settings_page.language.title}</h2>
                     <p className="text-sm text-muted-foreground">
-                      Select your preferred language for the interface.
+                      {t.settings_page.language.description}
                     </p>
                   </div>
                 </div>
@@ -90,9 +90,9 @@ export default function SettingsPage() {
               className="p-10 rounded-3xl bg-muted/30 border border-border opacity-60"
             >
               <div className="flex flex-col gap-4">
-                <h2 className="font-heading text-xl font-bold text-foreground opacity-50">General Preferences</h2>
+                <h2 className="font-heading text-xl font-bold text-foreground opacity-50">{t.settings_page.general.title}</h2>
                 <p className="text-sm text-muted-foreground italic">
-                  More settings coming soon...
+                  {t.settings_page.general.coming_soon}
                 </p>
               </div>
             </motion.section>

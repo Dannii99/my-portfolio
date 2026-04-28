@@ -55,7 +55,7 @@ export function Expertise() {
               viewport={{ once: true }}
               className="font-heading text-6xl md:text-8xl font-black tracking-tighter text-[#dddedd] uppercase"
             >
-              Expertise
+              {t.expertise.title}
             </motion.h2>
             <motion.div 
               initial={{ width: 0 }}

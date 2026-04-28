@@ -21,7 +21,7 @@ export function Contact() {
               viewport={{ once: true }}
               className="font-heading text-6xl md:text-9xl font-black tracking-tighter text-[#dddedd] uppercase leading-none"
             >
-              Contact
+              {t.contact.title}
             </motion.h2>
           </div>
           <motion.p 
@@ -40,7 +40,7 @@ export function Contact() {
             <div className="space-y-12">
               <div className="group space-y-4">
                 <h4 className="font-heading text-[10px] font-black uppercase tracking-[0.3em] text-[#585a5f]">{t.contact.email_label}</h4>
-                <p className="text-2xl font-black text-[#dddedd] group-hover:text-[#585a5f] transition-colors break-all">hello@dannyospino.com</p>
+                <p className="text-2xl font-black text-[#dddedd] group-hover:text-[#585a5f] transition-colors break-all">{t.contact.email_value}</p>
               </div>
 
               <div className="group space-y-4">

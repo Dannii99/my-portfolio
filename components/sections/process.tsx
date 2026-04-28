@@ -17,7 +17,7 @@ export function Process() {
             viewport={{ once: true }}
             className="font-heading text-6xl md:text-9xl font-black tracking-tighter text-[#dddedd] uppercase leading-none"
           >
-            Process
+            {t.process.title}
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0 }}

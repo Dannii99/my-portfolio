@@ -73,7 +73,7 @@ export function Hero() {
       <motion.div style={{ x: moveX, y: moveY }} className="absolute top-1/4 left-10 md:left-20 z-10 hidden md:block">
         <div className="border border-[#34353b] bg-[#161616]/80 px-4 py-2 backdrop-blur-md">
           <p className="font-heading text-[10px] font-black uppercase tracking-[0.3em] text-[#585a5f]">
-            Status: <span className="text-[#dddedd]">Active</span>
+            {t.hero.status}: <span className="text-[#dddedd]">Active</span>
           </p>
         </div>
       </motion.div>
@@ -81,7 +81,7 @@ export function Hero() {
       <motion.div style={{ x: useTransform(springX, [0, 2000], [20, -20]), y: useTransform(springY, [0, 1000], [20, -20]) }} className="absolute bottom-1/4 right-10 md:right-20 z-10 hidden md:block">
         <div className="border border-[#34353b] bg-[#161616]/80 px-4 py-2 backdrop-blur-md">
           <p className="font-heading text-[10px] font-black uppercase tracking-[0.3em] text-[#585a5f]">
-            OP: <span className="text-[#dddedd]">Render_Core</span>
+            {t.hero.op}: <span className="text-[#dddedd]">Render_Core</span>
           </p>
         </div>
       </motion.div>
@@ -153,8 +153,8 @@ export function Hero() {
 
       {/* Latency / System Info Bottom */}
       <div className="absolute bottom-10 left-10 hidden lg:flex flex-col gap-1">
-        <p className="text-[8px] font-black text-[#34353b] uppercase tracking-[0.2em]">Deployment: v1.0.4</p>
-        <p className="text-[8px] font-black text-[#34353b] uppercase tracking-[0.2em]">Location: 10.0.0.1</p>
+        <p className="text-[8px] font-black text-[#34353b] uppercase tracking-[0.2em]">{t.hero.deployment}: v1.0.4</p>
+        <p className="text-[8px] font-black text-[#34353b] uppercase tracking-[0.2em]">{t.hero.location}: 10.0.0.1</p>
       </div>
 
       <motion.div

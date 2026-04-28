@@ -20,10 +20,8 @@ export function Work() {
 
   const projects = [
     {
-      title: "Pokémon Go Explorer",
-      description: locale === "en" 
-        ? "A high-performance interactive dashboard for Pokémon data, featuring real-time filtering and an immersive UX built with React and advanced CSS."
-        : "Un dashboard interactivo de alto rendimiento para datos de Pokémon, con filtrado en tiempo real y una UX inmersiva construida con React y CSS avanzado.",
+      title: t.work.projects[0].title,
+      description: t.work.projects[0].description,
       image: "/img/pokemon-go.png", 
       tags: ["React", "CSS3", "Vercel", "API Rest"],
       link: "https://pokemon-go-rosy.vercel.app/",
@@ -32,10 +30,8 @@ export function Work() {
       source_text: t.work.projects[0].source,
     },
     {
-      title: "Yupy TV",
-      description: locale === "en" 
-        ? "A premium streaming platform experience with a sleek interface, categorized content, and a focus on high-quality video delivery and user engagement."
-        : "Una experiencia de plataforma de streaming premium con una interfaz elegante, contenido categorizado y un enfoque en la entrega de video de alta calidad.",
+      title: t.work.projects[1].title,
+      description: t.work.projects[1].description,
       image: "/img/yupi-tv.png",
       tags: ["Next.js", "Tailwind CSS", "Vercel", "Video Streaming"],
       link: "https://yupy-tv.vercel.app/",

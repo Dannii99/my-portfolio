@@ -7,16 +7,18 @@ import Image from "next/image"
 import { useLanguage } from "@/components/language-provider"
 
 export function Work() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
 
   const projects = [
     {
-      title: t.work.projects[0].title,
-      description: t.work.projects[0].description,
-      image: "/window.svg", 
-      tags: ["Next.js", "TypeScript", "D3.js"],
-      link: "#",
-      github: "#",
+      title: "Pokémon Go Explorer",
+      description: locale === "en" 
+        ? "A high-performance interactive dashboard for Pokémon data, featuring real-time filtering and an immersive UX built with React and advanced CSS."
+        : "Un dashboard interactivo de alto rendimiento para datos de Pokémon, con filtrado en tiempo real y una UX inmersiva construida con React y CSS avanzado.",
+      image: "/globe.svg", 
+      tags: ["React", "CSS3", "Vercel", "API Rest"],
+      link: "https://pokemon-go-rosy.vercel.app/home",
+      github: "https://github.com/Dannii99/pokemon-go",
       live_text: t.work.projects[0].live,
       source_text: t.work.projects[0].source,
     },

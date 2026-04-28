@@ -28,20 +28,20 @@ export function Hero() {
       <motion.div
         className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
         style={{
-          background: `radial-gradient(1000px circle at ${springX}px ${springY}px, rgba(46, 91, 255, 0.08), transparent 70%)`,
+          background: `radial-gradient(1000px circle at ${springX}px ${springY}px, var(--color-primary) 0.08, transparent 70%)`,
         }}
       />
       
       {/* Background Glows (Atmospheric) */}
-      <div className="absolute top-1/4 -left-20 h-96 w-96 rounded-full bg-primary/10 blur-[120px]" />
-      <div className="absolute bottom-1/4 -right-20 h-96 w-96 rounded-full bg-secondary/10 blur-[120px]" />
+      <div className="absolute top-1/4 -left-20 h-96 w-96 rounded-full bg-primary/20 blur-[120px]" />
+      <div className="absolute bottom-1/4 -right-20 h-96 w-96 rounded-full bg-secondary/15 blur-[120px]" />
 
       <div className="container relative z-10 mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-12"
+          className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-12 shadow-[0_0_15px_rgba(var(--color-primary),0.2)]"
         >
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -59,14 +59,14 @@ export function Hero() {
           {locale === "en" ? (
             <>
               Architecting <span className="italic font-light opacity-80">Ethereal</span> <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#8B5CF6]/80 via-[#8B5CF6]/70 to-[#0EA5E9]/80 saturate-[1.1] brightness-[1.1] dark:from-[#9b7de0]/70 dark:via-[#9b7de0] dark:to-[#5891ac]">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent saturate-[1.3] brightness-[1.2]">
                 Digital Experiences
               </span>
             </>
           ) : (
             <>
               Arquitectando <span className="italic font-light opacity-80">Experiencias</span> <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#8B5CF6]/80 via-[#8B5CF6]/70 to-[#0EA5E9]/80 saturate-[1.1] brightness-[1.1] dark:from-[#9b7de0]/70 dark:via-[#9b7de0] dark:to-[#5891ac]">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent saturate-[1.3] brightness-[1.2]">
                 Digitales Etéreas
               </span>
             </>

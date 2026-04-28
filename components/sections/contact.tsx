@@ -1,13 +1,71 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Mail, MessageSquare, Send, Linkedin, Github } from "lucide-react"
-import { SpotlightCard } from "@/components/ui/spotlight-card"
-
+import { Mail, MessageSquare, Send, Linkedin, Github, CheckCircle2, AlertCircle, Loader2 } from "lucide-react"
+import { useState, useRef } from "react"
+import emailjs from "@emailjs/browser"
 import { useLanguage } from "@/components/language-provider"
 
 export function Contact() {
   const { t } = useLanguage()
+  const formRef = useRef<HTMLFormElement>(null)
+  
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle")
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  })
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (status === "sending") return
+
+    // Debug check (will only show in browser console)
+    if (!process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || !process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
+      console.error("EmailJS Keys missing in environment variables")
+      setStatus("error")
+      return
+    }
+
+    setStatus("sending")
+
+    try {
+      emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY)
+
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject || "Portfolio Contact",
+        message: formData.message,
+        time: new Date().toLocaleString()
+      }
+
+      const response = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        templateParams
+      )
+
+      if (response.status === 200) {
+        setStatus("success")
+        setFormData({ name: "", email: "", subject: "", message: "" })
+      } else {
+        throw new Error(`EmailJS Error: ${response.status}`)
+      }
+      
+      setTimeout(() => setStatus("idle"), 5000)
+    } catch (error) {
+      console.error("Detailed EmailJS Error:", error)
+      setStatus("error")
+      setTimeout(() => setStatus("idle"), 5000)
+    }
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({ ...prev, [e.target.id]: e.target.value }))
+  }
 
   return (
     <section id="contact" className="w-full py-32 px-6 bg-[#161616] relative overflow-hidden">
@@ -65,12 +123,15 @@ export function Contact() {
           </div>
 
           <div className="lg:col-span-3 p-12 bg-[#161616]">
-            <form className="space-y-10">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-10">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div className="space-y-3">
                   <label htmlFor="name" className="font-heading text-[10px] font-black uppercase tracking-[0.3em] text-[#585a5f]">{t.contact.form.name}</label>
                   <input
                     id="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
                     type="text"
                     placeholder={t.contact.form.name_placeholder}
                     className="w-full rounded-none border-b border-[#34353b] bg-transparent px-0 py-4 text-[#dddedd] outline-none focus:border-[#dddedd] transition-all placeholder:text-[#34353b] font-bold uppercase text-xs tracking-widest"
@@ -80,24 +141,76 @@ export function Contact() {
                   <label htmlFor="email" className="font-heading text-[10px] font-black uppercase tracking-[0.3em] text-[#585a5f]">{t.contact.form.email}</label>
                   <input
                     id="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
                     type="email"
                     placeholder={t.contact.form.email_placeholder}
                     className="w-full rounded-none border-b border-[#34353b] bg-transparent px-0 py-4 text-[#dddedd] outline-none focus:border-[#dddedd] transition-all placeholder:text-[#34353b] font-bold uppercase text-xs tracking-widest"
                   />
                 </div>
               </div>
+
+              <div className="space-y-3">
+                <label htmlFor="subject" className="font-heading text-[10px] font-black uppercase tracking-[0.3em] text-[#585a5f]">Subject / Asunto</label>
+                <input
+                  id="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  type="text"
+                  placeholder="WORK_QUERY / HELLO / PROJECT_ENG"
+                  className="w-full rounded-none border-b border-[#34353b] bg-transparent px-0 py-4 text-[#dddedd] outline-none focus:border-[#dddedd] transition-all placeholder:text-[#34353b] font-bold uppercase text-xs tracking-widest"
+                />
+              </div>
+
               <div className="space-y-3">
                 <label htmlFor="message" className="font-heading text-[10px] font-black uppercase tracking-[0.3em] text-[#585a5f]">{t.contact.form.message}</label>
                 <textarea
                   id="message"
+                  required
                   rows={4}
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder={t.contact.form.message_placeholder}
                   className="w-full rounded-none border-b border-[#34353b] bg-transparent px-0 py-4 text-[#dddedd] outline-none focus:border-[#dddedd] transition-all resize-none placeholder:text-[#34353b] font-bold uppercase text-xs tracking-widest"
                 />
               </div>
-              <button className="group flex h-20 w-full items-center justify-center gap-4 bg-[#dddedd] text-[#161616] font-black uppercase tracking-[0.4em] text-xs transition-all hover:bg-[#585a5f] hover:text-[#dddedd]">
-                {t.contact.form.cta}
-                <Send className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+
+              <button 
+                type="submit"
+                disabled={status !== "idle"}
+                className={`group flex h-20 w-full items-center justify-center gap-4 font-black uppercase tracking-[0.4em] text-xs transition-all ${
+                  status === "success" 
+                    ? "bg-green-600 text-white" 
+                    : status === "error" 
+                    ? "bg-red-600 text-white" 
+                    : "bg-[#dddedd] text-[#161616] hover:bg-[#585a5f] hover:text-[#dddedd] disabled:opacity-50"
+                }`}
+              >
+                {status === "idle" && (
+                  <>
+                    {t.contact.form.cta}
+                    <Send className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </>
+                )}
+                {status === "sending" && (
+                  <>
+                    SENDING_DATA...
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  </>
+                )}
+                {status === "success" && (
+                  <>
+                    MESSAGE_RECEIVED
+                    <CheckCircle2 className="h-4 w-4" />
+                  </>
+                )}
+                {status === "error" && (
+                  <>
+                    SYSTEM_ERROR
+                    <AlertCircle className="h-4 w-4" />
+                  </>
+                )}
               </button>
             </form>
           </div>

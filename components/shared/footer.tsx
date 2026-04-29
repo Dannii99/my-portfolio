@@ -6,7 +6,7 @@ import { Github, Linkedin } from "lucide-react"
 import { useLanguage } from "@/components/language-provider"
 
 export function Footer() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
 
   return (
     <footer className="w-full border-t border-[#34353b] bg-[#161616] py-24 px-6 relative overflow-hidden">
@@ -32,6 +32,7 @@ export function Footer() {
             <h4 className="font-heading text-[10px] font-black uppercase tracking-[0.3em] text-[#dddedd]">{t.footer.nav_title}</h4>
             <div className="flex flex-col gap-6 text-[10px] font-black uppercase tracking-[0.2em] text-[#585a5f]">
               <Link href="/#expertise" className="hover:text-[#dddedd] transition-colors">{t.nav.expertise}</Link>
+              <Link href="/#about" className="hover:text-[#dddedd] transition-colors">{locale === "en" ? "About" : "Sobre Mí"}</Link>
               <Link href="/#work" className="hover:text-[#dddedd] transition-colors">{t.nav.work}</Link>
               <Link href="/#process" className="hover:text-[#dddedd] transition-colors">{t.nav.process}</Link>
               <Link href="/#contact" className="hover:text-[#dddedd] transition-colors">{t.nav.contact}</Link>

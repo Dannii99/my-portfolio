@@ -3,6 +3,7 @@
 import { Navbar } from "@/components/shared/navbar"
 import { Footer } from "@/components/shared/footer"
 import { Hero } from "@/components/sections/hero"
+import { About } from "@/components/sections/about"
 import { Expertise } from "@/components/sections/expertise"
 import { Work } from "@/components/sections/work"
 import { Process } from "@/components/sections/process"
@@ -14,6 +15,7 @@ export default function Home() {
       <Navbar />
       <main className="flex flex-col">
         <Hero />
+        <About />
         <Expertise />
         <Work />
         <Process />

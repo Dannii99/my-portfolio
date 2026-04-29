@@ -9,12 +9,13 @@ import { useLanguage } from "@/components/language-provider"
 import { LanguageToggle } from "@/components/ui/language-toggle"
 
 export function Navbar() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   const [isOpen, setIsOpen] = React.useState(false)
   const [scrolled, setScrolled] = React.useState(false)
 
   const navItems = [
     { name: t.nav.expertise, href: "/#expertise" },
+    { name: locale === "en" ? "About" : "Sobre Mí", href: "/#about" },
     { name: t.nav.work, href: "/#work" },
     { name: t.nav.process, href: "/#process" },
     { name: t.nav.contact, href: "/#contact" },

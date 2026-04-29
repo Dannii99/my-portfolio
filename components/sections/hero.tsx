@@ -4,6 +4,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
 import { ArrowRight, ChevronDown } from "lucide-react"
 import { useEffect, useState, useCallback } from "react"
 import { useLanguage } from "@/components/language-provider"
+import Link from "next/link"
 
 const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@&%*"
 
@@ -141,13 +142,19 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-16 flex flex-wrap items-center justify-center gap-0 border border-[#34353b]"
         >
-          <button className="group relative flex h-20 items-center gap-4 bg-[#dddedd] px-12 text-[10px] font-black uppercase tracking-[0.3em] text-[#161616] transition-all hover:bg-[#161616] hover:text-[#dddedd]">
+          <Link 
+            href="#work"
+            className="group relative flex h-20 items-center gap-4 bg-[#dddedd] px-12 text-[10px] font-black uppercase tracking-[0.3em] text-[#161616] transition-all hover:bg-[#161616] hover:text-[#dddedd]"
+          >
             {t.hero.cta_work}
             <ArrowRight className="h-4 w-4" />
-          </button>
-          <button className="group relative flex h-20 items-center gap-4 bg-transparent px-12 text-[10px] font-black uppercase tracking-[0.3em] text-[#dddedd] transition-all hover:bg-[#34353b]">
+          </Link>
+          <Link 
+            href="#about"
+            className="group relative flex h-20 items-center gap-4 bg-transparent px-12 text-[10px] font-black uppercase tracking-[0.3em] text-[#dddedd] transition-all hover:bg-[#34353b]"
+          >
             {t.hero.cta_about}
-          </button>
+          </Link>
         </motion.div>
       </div>
 

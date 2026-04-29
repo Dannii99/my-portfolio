@@ -6,7 +6,7 @@ import { Locale, translations } from "@/lib/i18n"
 interface LanguageContextType {
   locale: Locale
   setLocale: (locale: Locale) => void
-  t: any
+  t: typeof translations["en"]
 }
 
 const LanguageContext = React.createContext<LanguageContextType | undefined>(undefined)

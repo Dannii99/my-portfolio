@@ -24,6 +24,8 @@ export const translations = {
     expertise: {
       title: "Expertise",
       subtitle: "5+ years of engineering high-end frontend systems with a focus on architecture, performance, and scalability.",
+      console_label: "Senior_Engineer_Console",
+      exp_badge: "5+ YEARS",
       items: [
         {
           title: "Enterprise Architecture",
@@ -98,6 +100,19 @@ export const translations = {
         },
       ],
     },
+    about: {
+      title: "Behind the Architecture",
+      subtitle: "More than just code, it's about creating digital legacy.",
+      p1: "I'm Danny, a Senior Frontend Engineer with 5+ years of experience in the industry. My journey began with a curiosity for how digital things work, which quickly evolved into a passion for building scalable, high-performance web applications.",
+      p2: "Specializing in the Angular ecosystem, I focus on bridging the gap between complex engineering and human-centric design. I believe that every pixel should serve a purpose and every line of code should be a foundation for the future.",
+      p3: "When I'm not architecting systems, I'm exploring new UI trends, contributing to open-source, or helping other developers grow. Let's build something exceptional together.",
+      stats: {
+        experience: "Experience",
+        projects: "Projects",
+        exp_value: "05+ Yrs",
+        proj_value: "50+ Done",
+      }
+    },
     contact: {
       title: "Start a Conversation",
       subtitle: "Have a project in mind or just want to say hi? I'm always open to discussing new opportunities and creative architectural ideas.",
@@ -128,6 +143,8 @@ export const translations = {
       appearance: {
         title: "Appearance",
         description: "Customize the look and feel of the application.",
+        light: "Light",
+        dark: "Dark",
       },
       language: {
         title: "Language",
@@ -162,6 +179,8 @@ export const translations = {
     expertise: {
       title: "Experticia",
       subtitle: "5+ años de ingeniería en sistemas frontend de alta gama con enfoque en arquitectura, rendimiento y escalabilidad.",
+      console_label: "Consola_Ingeniero_Senior",
+      exp_badge: "5+ AÑOS",
       items: [
         {
           title: "Arquitectura Empresarial",
@@ -236,6 +255,19 @@ export const translations = {
         },
       ],
     },
+    about: {
+      title: "Detrás de la Arquitectura",
+      subtitle: "Más que solo código, se trata de crear un legado digital.",
+      p1: "Soy Danny, un Ingeniero Frontend Senior con más de 5 años de experiencia en la industria. Mi viaje comenzó con la curiosidad de cómo funcionan las cosas digitales, lo que rápidamente evolucionó en una pasión por construir aplicaciones web escalables y de alto rendimiento.",
+      p2: "Especializado en el ecosistema de Angular, me enfoco en cerrar la brecha entre la ingeniería compleja y el diseño centrado en el humano. Creo que cada píxel debe tener un propósito y cada línea de código debe ser una base para el futuro.",
+      p3: "Cuando no estoy arquitectando sistemas, estoy explorando nuevas tendencias de UI, contribuyendo al código abierto o ayudando a otros desarrolladores a crecer. Construyamos algo excepcional juntos.",
+      stats: {
+        experience: "Experiencia",
+        projects: "Proyectos",
+        exp_value: "05+ Años",
+        proj_value: "50+ Listos",
+      }
+    },
     contact: {
       title: "Inicia una Conversación",
       subtitle: "¿Tienes un proyecto en mente o solo quieres saludar? Siempre estoy abierto a discutir nuevas oportunidades e ideas arquitectónicas creativas.",
@@ -266,6 +298,8 @@ export const translations = {
       appearance: {
         title: "Apariencia",
         description: "Personaliza el aspecto y la sensación de la aplicación.",
+        light: "Claro",
+        dark: "Oscuro",
       },
       language: {
         title: "Idioma",

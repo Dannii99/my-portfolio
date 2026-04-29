@@ -46,12 +46,12 @@ export default function SettingsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="p-10 rounded-3xl bg-card/50 border border-border backdrop-blur-sm shadow-sm"
+              className="p-10 rounded-none bg-[#34353b]/40 border border-[#34353b] backdrop-blur-sm"
             >
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
                 <div>
-                  <h2 className="font-heading text-2xl font-bold text-foreground mb-2">{t.settings_page.appearance.title}</h2>
-                  <p className="text-sm text-muted-foreground">
+                  <h2 className="font-heading text-2xl font-bold text-[#dddedd] mb-2 uppercase tracking-tighter">{t.settings_page.appearance.title}</h2>
+                  <p className="text-[10px] text-[#585a5f] uppercase font-bold tracking-widest">
                     {t.settings_page.appearance.description}
                   </p>
                 </div>
@@ -64,16 +64,16 @@ export default function SettingsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="p-10 rounded-3xl bg-card/50 border border-border backdrop-blur-sm shadow-sm"
+              className="p-10 rounded-none bg-[#34353b]/40 border border-[#34353b] backdrop-blur-sm"
             >
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
                 <div className="flex items-start gap-4">
-                  <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-xl bg-secondary/10 border border-secondary/20 text-secondary">
+                  <div className="mt-1 flex h-10 w-10 items-center justify-center bg-[#585a5f]/10 border border-[#585a5f]/20 text-[#585a5f]">
                     <Languages className="h-5 w-5" />
                   </div>
                   <div>
-                    <h2 className="font-heading text-2xl font-bold text-foreground mb-2">{t.settings_page.language.title}</h2>
-                    <p className="text-sm text-muted-foreground">
+                    <h2 className="font-heading text-2xl font-bold text-[#dddedd] mb-2 uppercase tracking-tighter">{t.settings_page.language.title}</h2>
+                    <p className="text-[10px] text-[#585a5f] uppercase font-bold tracking-widest">
                       {t.settings_page.language.description}
                     </p>
                   </div>
@@ -87,11 +87,11 @@ export default function SettingsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="p-10 rounded-3xl bg-muted/30 border border-border opacity-60"
+              className="p-10 rounded-none border border-[#34353b] opacity-60"
             >
               <div className="flex flex-col gap-4">
-                <h2 className="font-heading text-xl font-bold text-foreground opacity-50">{t.settings_page.general.title}</h2>
-                <p className="text-sm text-muted-foreground italic">
+                <h2 className="font-heading text-xl font-bold text-[#dddedd] opacity-50 uppercase tracking-tighter">{t.settings_page.general.title}</h2>
+                <p className="text-[10px] text-[#585a5f] italic uppercase font-bold tracking-widest">
                   {t.settings_page.general.coming_soon}
                 </p>
               </div>

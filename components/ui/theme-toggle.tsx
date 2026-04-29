@@ -5,9 +5,11 @@ import { motion } from "framer-motion"
 import { Sun, Moon } from "lucide-react"
 import { useTheme } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
+import { useLanguage } from "@/components/language-provider"
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
+  const { t } = useLanguage()
 
   return (
     <div className="relative flex items-center p-1 bg-[#34353b] border border-[#161616] w-fit">
@@ -34,7 +36,7 @@ export function ThemeToggle() {
           )}
         >
           <Sun className="h-3.5 w-3.5" />
-          <span>Light</span>
+          <span>{t.settings_page.appearance.light}</span>
         </button>
 
         <button
@@ -45,7 +47,7 @@ export function ThemeToggle() {
           )}
         >
           <Moon className="h-3.5 w-3.5" />
-          <span>Dark</span>
+          <span>{t.settings_page.appearance.dark}</span>
         </button>
       </div>
     </div>

@@ -16,7 +16,7 @@ export function Expertise() {
       icon: <Cpu className="h-10 w-10 text-[#dddedd]" />,
       className: "md:col-span-2 md:row-span-2",
       details: t.expertise.items[0].details,
-      technical_stat: "5+ YEARS",
+      technical_stat: t.expertise.exp_badge,
     },
     {
       title: t.expertise.items[1].title,
@@ -64,7 +64,7 @@ export function Expertise() {
             </motion.h2>
             <div className="absolute -top-10 -right-10 hidden md:block">
               <span className="text-[10px] font-black text-[#34353b] uppercase tracking-[0.5em] [writing-mode:vertical-lr]">
-                Senior_Engineer_Console
+                {t.expertise.console_label}
               </span>
             </div>
           </div>

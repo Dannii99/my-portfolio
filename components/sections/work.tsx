@@ -49,6 +49,16 @@ export function Work() {
       live_text: t.work.projects[2].live,
       source_text: t.work.projects[2].source,
     },
+    {
+      title: t.work.projects[3].title,
+      description: t.work.projects[3].description,
+      image: "/img/food.png",
+      tags: ["React", "typescript", "Tailwind CSS", "Vercel"],
+      link: "https://fresh-fridge-jet.vercel.app/",
+      github: "https://github.com/Dannii99/fresh-fridge",
+      live_text: t.work.projects[3].live,
+      source_text: t.work.projects[3].source,
+    },
   ]
 
   return (

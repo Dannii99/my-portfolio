@@ -76,6 +76,12 @@ export const translations = {
           live: "Live Demo",
           source: "Source",
         },
+        {
+          title: "Food Delivery",
+          description: "A beautiful and interactive wedding invitation with elegant design, smooth animations, and personalized experience.",
+          live: "Live Demo",
+          source: "Source",
+        },
       ],
     },
     process: {
@@ -230,6 +236,12 @@ export const translations = {
         {
           title: "Invitación de Boda",
           description: "Una hermosa e interactiva invitación de boda con diseño elegante, animaciones fluidas y experiencia personalizada.",
+          live: "Demo en Vivo",
+          source: "Código",
+        },
+        {
+          title: "Food Delivery",
+          description: "Una manera practica y rapida de guardar nota y inventario de tu refrigerador y despenza en tu casa.",
           live: "Demo en Vivo",
           source: "Código",
         },

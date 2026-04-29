@@ -77,7 +77,7 @@ export function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="font-heading text-6xl md:text-9xl font-black tracking-tighter text-[#dddedd] uppercase leading-none"
+              className="font-heading text-5xl md:text-6xl lg:text-9xl font-black tracking-tighter text-[#dddedd] uppercase leading-none"
             >
               {t.contact.title}
             </motion.h2>

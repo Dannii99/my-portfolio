@@ -82,7 +82,7 @@ export function Hero() {
       <motion.div style={{ x: useTransform(springX, [0, 2000], [20, -20]), y: useTransform(springY, [0, 1000], [20, -20]) }} className="absolute bottom-1/4 right-10 md:right-20 z-10 hidden md:block">
         <div className="border border-[#34353b] bg-[#161616]/80 px-4 py-2 backdrop-blur-md">
           <p className="font-heading text-[10px] font-black uppercase tracking-[0.3em] text-[#585a5f]">
-            {t.hero.op}: <span className="text-[#dddedd]">Render_Core</span>
+            {t.hero.op}: <span className="text-[#dddedd]">Angular_Core</span>
           </p>
         </div>
       </motion.div>

@@ -23,7 +23,7 @@ export function Work() {
       title: t.work.projects[0].title,
       description: t.work.projects[0].description,
       image: "/img/pokemon-go.png", 
-      tags: ["React", "CSS3", "Vercel", "API Rest"],
+      tags: ["React", "CSS3", "Tailwind CSS", "API Rest", "stitch", "Vercel"],
       link: "https://pokemon-go-rosy.vercel.app/",
       github: "https://github.com/Dannii99/pokemon-go",
       live_text: t.work.projects[0].live,
@@ -33,7 +33,7 @@ export function Work() {
       title: t.work.projects[1].title,
       description: t.work.projects[1].description,
       image: "/img/yupi-tv.png",
-      tags: ["Next.js", "Tailwind CSS", "Vercel", "Video Streaming"],
+      tags: ["Next.js", "Tailwind CSS", "shadcn/ui", "IA", "Vercel"],
       link: "https://yupy-tv.vercel.app/",
       github: "https://github.com/Dannii99/yupy-tv",
       live_text: t.work.projects[1].live,
@@ -43,7 +43,7 @@ export function Work() {
       title: t.work.projects[2].title,
       description: t.work.projects[2].description,
       image: "/img/invitacion-boda.png",
-      tags: ["React", "Framer Motion", "Tailwind CSS"],
+      tags: ["Angular", "typescript", "Tailwind CSS", "iframe", "Vercel"],
       link: "https://wedding-invitation-one.vercel.app/",
       github: "https://github.com/Dannii99/Wedding-invitation",
       live_text: t.work.projects[2].live,
@@ -60,7 +60,7 @@ export function Work() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="font-heading text-7xl md:text-[10rem] font-black tracking-tighter text-[#dddedd] uppercase leading-[0.8]"
+            className="font-heading text-5xl md:text-7xl lg:text-[10rem] font-black tracking-tighter text-[#dddedd] uppercase leading-[0.8]"
           >
             {t.work.title.split(" ")[0]} <br />
             <span className="text-[#585a5f]">{t.work.title.split(" ").slice(1).join(" ")}</span>
@@ -90,7 +90,7 @@ export function Work() {
               bulletActiveClass: '!bg-[#dddedd] !w-16',
             }}
             modules={[EffectCoverflow, Navigation, Pagination]}
-            className="w-full !py-20"
+            className="w-full py-10! md:py-16! lg:py-20!"
           >
             {projects.map((project, index) => (
               <SwiperSlide 

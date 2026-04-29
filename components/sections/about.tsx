@@ -23,23 +23,23 @@ export function About() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
-            className="relative flex justify-center lg:justify-start"
+            className="relative flex justify-center lg:justify-center"
           >
             <div className="relative group">
               {/* Industrial Rotating Border */}
               <motion.div 
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute -inset-4 border-2 border-dashed border-[#34353b] rounded-full opacity-50"
+                className="absolute -inset-4 border-2 border-dashed border-[#34353b] rounded-full! opacity-50"
               />
               
               {/* Profile Image Container */}
-              <div className="relative h-[300px] w-[300px] md:h-[450px] md:w-[450px] overflow-hidden rounded-full border-4 border-[#34353b] bg-[#34353b]">
+              <div className="relative h-[300px] w-[300px] md:h-[380px] md:w-[380px] overflow-hidden rounded-full! border-4 border-[#34353b] bg-[#34353b]">
                 <Image
                   src="/img/perfil.png"
                   alt="Danny Ospino"
                   fill
-                  className="object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110"
+                  className="object-cover object-top grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110 rounded-full!"
                 />
                 <div className="absolute inset-0 bg-[#161616]/20 group-hover:bg-transparent transition-colors duration-500" />
               </div>
@@ -71,7 +71,7 @@ export function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="font-heading text-6xl md:text-8xl font-black tracking-tighter text-[#dddedd] uppercase leading-none mb-6"
+                className="font-heading text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter text-[#dddedd] uppercase leading-none mb-6"
               >
                 {t.about.title}
               </motion.h2>
@@ -94,7 +94,7 @@ export function About() {
                 viewport={{ once: true }}
                 className="text-lg md:text-xl font-bold text-[#dddedd] leading-relaxed italic"
               >
-                "{t.about.p1}"
+                {'"'}{t.about.p1}{'"'}
               </motion.p>
               
               <motion.p 
@@ -127,6 +127,10 @@ export function About() {
               <div className="flex flex-col gap-2">
                 <span className="text-[10px] font-black text-[#34353b] uppercase tracking-widest">{t.about.stats.experience}</span>
                 <span className="text-3xl font-black text-[#dddedd]">{t.about.stats.exp_value}</span>
+              </div>
+              <div className="flex flex-col gap-2">
+                <span className="text-[10px] font-black text-[#34353b] uppercase tracking-widest">{t.about.stats.products}</span>
+                <span className="text-3xl font-black text-[#dddedd]">{t.about.stats.prod_value}</span>
               </div>
               <div className="flex flex-col gap-2">
                 <span className="text-[10px] font-black text-[#34353b] uppercase tracking-widest">{t.about.stats.projects}</span>

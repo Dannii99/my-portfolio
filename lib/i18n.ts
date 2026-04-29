@@ -59,14 +59,14 @@ export const translations = {
       subtitle: "A curated selection of projects that demonstrate my focus on performance, aesthetics, and scalable architecture.",
       projects: [
         {
-          title: "Quantum Dashboard",
-          description: "A high-performance data visualization platform with real-time stream processing and advanced analytics.",
+          title: "Pokémon Go Explorer",
+          description: "A high-performance interactive dashboard for Pokémon data, featuring real-time filtering and an immersive UX built with React and advanced CSS.",
           live: "Live Demo",
           source: "Source",
         },
         {
-          title: "Ethereal UI Kit",
-          description: "A comprehensive design system focused on glassmorphism, depth, and atmospheric motion.",
+          title: "Yupy TV",
+          description: "A premium streaming platform experience with a sleek interface, categorized content, and a focus on high-quality video delivery and user engagement.",
           live: "Live Demo",
           source: "Source",
         },
@@ -100,17 +100,19 @@ export const translations = {
         },
       ],
     },
-    about: {
+   about: {
       title: "Behind the Architecture",
-      subtitle: "More than just code, it's about creating digital legacy.",
-      p1: "I'm Danny, a Senior Frontend Engineer with 5+ years of experience in the industry. My journey began with a curiosity for how digital things work, which quickly evolved into a passion for building scalable, high-performance web applications.",
-      p2: "Specializing in the Angular ecosystem, I focus on bridging the gap between complex engineering and human-centric design. I believe that every pixel should serve a purpose and every line of code should be a foundation for the future.",
-      p3: "When I'm not architecting systems, I'm exploring new UI trends, contributing to open-source, or helping other developers grow. Let's build something exceptional together.",
+      subtitle: "More than just code — it's about building solutions that last.",
+      p1: "I'm Danny, a Senior Frontend Developer with over 5 years of experience in the industry. My journey started with a curiosity about how digital products work, which quickly evolved into a passion for building scalable, high-performance web applications.",
+      p2: "Specialized in the Angular ecosystem, I focus on turning complex requirements into clear, efficient, and user-centered interfaces. I believe every technical decision should deliver value, and that solid architecture is the foundation of long-lasting products.",
+      p3: "When I'm not designing solutions, I'm exploring new UI trends, sharpening my skills, or sharing knowledge with other developers. Let's build something well-crafted.",
       stats: {
         experience: "Experience",
-        projects: "Projects",
-        exp_value: "05+ Yrs",
-        proj_value: "50+ Done",
+        exp_value: "5+ Years",
+        projects: "Personal Projects",
+        proj_value: "4+ Completed",
+        products: "Products",
+        prod_value: "10+ in Production"
       }
     },
     contact: {
@@ -214,14 +216,14 @@ export const translations = {
       subtitle: "Una selección curada de proyectos que demuestran mi enfoque en el rendimiento, la estética y la arquitectura escalable.",
       projects: [
         {
-          title: "Quantum Dashboard",
-          description: "Plataforma de visualización de datos de alto rendimiento con procesamiento en tiempo real y analítica avanzada.",
+          title: "Pokémon Go Explorer",
+          description: "Un dashboard interactivo de alto rendimiento para datos de Pokémon, con filtrado en tiempo real y una UX inmersiva construida con React y CSS avanzado.",
           live: "Demo en Vivo",
           source: "Código",
         },
         {
-          title: "Ethereal UI Kit",
-          description: "Sistema de diseño completo centrado en el glassmorphism, la profundidad y el movimiento atmosférico.",
+          title: "Yupi TV",
+          description: "Una experiencia de plataforma de streaming premium con una interfaz elegante, contenido categorizado y un enfoque en la entrega de video de alta calidad.",
           live: "Demo en Vivo",
           source: "Código",
         },
@@ -257,15 +259,17 @@ export const translations = {
     },
     about: {
       title: "Detrás de la Arquitectura",
-      subtitle: "Más que solo código, se trata de crear un legado digital.",
+      subtitle: "Más que solo código, se trata de construir soluciones que perduren.",
       p1: "Soy Danny, un Ingeniero Frontend Senior con más de 5 años de experiencia en la industria. Mi viaje comenzó con la curiosidad de cómo funcionan las cosas digitales, lo que rápidamente evolucionó en una pasión por construir aplicaciones web escalables y de alto rendimiento.",
-      p2: "Especializado en el ecosistema de Angular, me enfoco en cerrar la brecha entre la ingeniería compleja y el diseño centrado en el humano. Creo que cada píxel debe tener un propósito y cada línea de código debe ser una base para el futuro.",
-      p3: "Cuando no estoy arquitectando sistemas, estoy explorando nuevas tendencias de UI, contribuyendo al código abierto o ayudando a otros desarrolladores a crecer. Construyamos algo excepcional juntos.",
+      p2: "Especializado en el ecosistema de Angular, me enfoco en transformar requerimientos complejos en interfaces claras, eficientes y centradas en el usuario. Creo que cada decisión técnica debe aportar valor y que una buena arquitectura es la base de productos sólidos a largo plazo.",
+      p3: "Cuando no estoy diseñando soluciones, estoy explorando nuevas tendencias de UI, fortaleciendo mis habilidades o compartiendo conocimiento con otros desarrolladores. Construyamos algo bien hecho.",
       stats: {
         experience: "Experiencia",
-        projects: "Proyectos",
         exp_value: "05+ Años",
-        proj_value: "50+ Listos",
+        projects: "Proyectos personales",
+        proj_value: "4+ Listos",
+        products: "Productos",
+        prod_value: "10+ Pdn",
       }
     },
     contact: {

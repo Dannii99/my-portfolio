@@ -79,7 +79,7 @@ export function Expertise() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-1 auto-rows-[280px] border border-[#34353b] bg-[#34353b]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-1 auto-rows-[440px] lg:auto-rows-[280px] border border-[#34353b] bg-[#34353b]">
           {expertise.map((item, index) => (
             <motion.div
               key={item.title}

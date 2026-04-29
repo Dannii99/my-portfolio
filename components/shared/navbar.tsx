@@ -51,7 +51,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden lg:flex items-center gap-10">
           <div className="flex items-center gap-8">
             {navItems.map((item) => (
               <Link
@@ -76,7 +76,7 @@ export function Navbar() {
 
         {/* Mobile Nav Toggle */}
         <button
-          className="flex md:hidden h-10 w-10 items-center justify-center bg-[#34353b] text-[#dddedd]"
+          className="flex lg:hidden h-10 w-10 items-center justify-center bg-[#34353b] text-[#dddedd]"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

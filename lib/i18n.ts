@@ -82,6 +82,12 @@ export const translations = {
           live: "Live Demo",
           source: "Source",
         },
+        {
+          title: "AreaDot",
+          description: "A radiography analysis tool that applies Monte Carlo simulation methods to calculate and optimize radiation dose distribution across imaging areas, enabling more precise diagnostic planning and area coverage estimation.",
+          live: "Live Demo",
+          source: "Source",
+        },
       ],
     },
     process: {
@@ -242,6 +248,12 @@ export const translations = {
         {
           title: "Food Delivery",
           description: "Una manera practica y rapida de guardar nota y inventario de tu refrigerador y despenza en tu casa.",
+          live: "Demo en Vivo",
+          source: "Código",
+        },
+        {
+          title: "AreaDot",
+          description: "Una herramienta de análisis radiográfico que aplica métodos de simulación Monte Carlo para calcular y optimizar la distribución de dosis de radiación en áreas de imagen, permitiendo una planificación diagnóstica más precisa y estimación de cobertura.",
           live: "Demo en Vivo",
           source: "Código",
         },

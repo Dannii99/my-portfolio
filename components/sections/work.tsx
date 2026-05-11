@@ -59,6 +59,16 @@ export function Work() {
       live_text: t.work.projects[3].live,
       source_text: t.work.projects[3].source,
     },
+    {
+      title: t.work.projects[4].title,
+      description: t.work.projects[4].description,
+      image: "/img/areadot.png",
+      tags: ["Next.js", "TypeScript", "Monte Carlo", "Radiography", "Vercel"],
+      link: "https://areadot-radiography.vercel.app/#/",
+      github: "https://github.com/Dannii99/areadot-radiography",
+      live_text: t.work.projects[4].live,
+      source_text: t.work.projects[4].source,
+    },
   ]
 
   return (

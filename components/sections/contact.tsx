@@ -94,7 +94,7 @@ export function Contact() {
             <div className="space-y-12">
               <div className="group space-y-4">
                 <h4 className="font-heading text-[10px] font-black uppercase tracking-[0.3em] text-[#585a5f]">{t.contact.email_label}</h4>
-                <p className="text-2xl font-black text-[#dddedd] group-hover:text-[#585a5f] transition-colors break-all">{t.contact.email_value}</p>
+                <p className="text-xl md:text-2xl font-black text-[#dddedd] group-hover:text-[#585a5f] transition-colors break-all">{t.contact.email_value}</p>
               </div>
 
               <div className="group space-y-4">

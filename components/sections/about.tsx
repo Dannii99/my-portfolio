@@ -126,15 +126,15 @@ export function About() {
             >
               <div className="flex flex-col gap-2">
                 <span className="text-[10px] font-black text-[#34353b] uppercase tracking-widest">{t.about.stats.experience}</span>
-                <span className="text-3xl font-black text-[#dddedd]">{t.about.stats.exp_value}</span>
+                <span className="text-xl md:text-2xl lg:text-3xl font-black text-[#dddedd]">{t.about.stats.exp_value}</span>
               </div>
               <div className="flex flex-col gap-2">
                 <span className="text-[10px] font-black text-[#34353b] uppercase tracking-widest">{t.about.stats.products}</span>
-                <span className="text-3xl font-black text-[#dddedd]">{t.about.stats.prod_value}</span>
+                <span className="text-xl md:text-2xl lg:text-3xl font-black text-[#dddedd]">{t.about.stats.prod_value}</span>
               </div>
               <div className="flex flex-col gap-2">
                 <span className="text-[10px] font-black text-[#34353b] uppercase tracking-widest">{t.about.stats.projects}</span>
-                <span className="text-3xl font-black text-[#dddedd]">{t.about.stats.proj_value}</span>
+                <span className="text-xl md:text-2xl lg:text-3xl font-black text-[#dddedd]">{t.about.stats.proj_value}</span>
               </div>
             </motion.div>
           </div>

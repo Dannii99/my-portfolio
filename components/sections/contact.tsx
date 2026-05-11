@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Mail, MessageSquare, Send, Linkedin, Github, CheckCircle2, AlertCircle, Loader2 } from "lucide-react"
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import emailjs from "@emailjs/browser"
 import { useLanguage } from "@/components/language-provider"
 
@@ -18,22 +18,18 @@ export function Contact() {
     message: ""
   })
 
+  // Initialize EmailJS once on mount
+  useEffect(() => {
+    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!)
+  }, [])
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (status === "sending") return
 
-    // Debug check (will only show in browser console)
-    if (!process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || !process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
-      console.error("EmailJS Keys missing in environment variables")
-      setStatus("error")
-      return
-    }
-
     setStatus("sending")
 
     try {
-      emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY)
-
       const templateParams = {
         name: formData.name,
         email: formData.email,
@@ -43,7 +39,7 @@ export function Contact() {
       }
 
       const response = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         templateParams
       )
@@ -98,7 +94,7 @@ export function Contact() {
             <div className="space-y-12">
               <div className="group space-y-4">
                 <h4 className="font-heading text-[10px] font-black uppercase tracking-[0.3em] text-[#585a5f]">{t.contact.email_label}</h4>
-                <p className="text-2xl font-black text-[#dddedd] group-hover:text-[#585a5f] transition-colors break-all">{t.contact.email_value}</p>
+                <p className="text-xl md:text-2xl font-black text-[#dddedd] group-hover:text-[#585a5f] transition-colors break-all">{t.contact.email_value}</p>
               </div>
 
               <div className="group space-y-4">

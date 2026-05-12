@@ -69,6 +69,16 @@ export function Work() {
       live_text: t.work.projects[4].live,
       source_text: t.work.projects[4].source,
     },
+    {
+      title: t.work.projects[5].title,
+      description: t.work.projects[5].description,
+      image: "/img/monarca-tasks.png",
+      tags: ["Next.js", "TypeScript", "Tailwind CSS", "Task Management", "Vercel"],
+      link: "https://monarca-tasks.vercel.app/",
+      github: "https://github.com/Dannii99/Monarca-Tasks",
+      live_text: t.work.projects[5].live,
+      source_text: t.work.projects[5].source,
+    },
   ]
 
   return (
